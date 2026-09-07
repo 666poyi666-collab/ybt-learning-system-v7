@@ -1,4 +1,5 @@
 # These manifests are SHA-bound to cloud evidence. Preserve their exact bytes;
 # Git's Windows newline conversion must not invalidate a restored snapshot.
-data/exam_papers/*.json -text
-reports/all_chapters/exam*.json -text
+data/exam_papers/*.json -text whitespace=cr-at-eol
+reports/all_chapters/exam*.json -text whitespace=cr-at-eol
+reports/all_chapters/transcript-utilization-current.json -text whitespace=cr-at-eol
