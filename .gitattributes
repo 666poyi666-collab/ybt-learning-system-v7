@@ -3,3 +3,4 @@
 data/exam_papers/*.json -text whitespace=cr-at-eol
 reports/all_chapters/exam*.json -text whitespace=cr-at-eol
 reports/all_chapters/transcript-utilization-current.json -text whitespace=cr-at-eol
+data/all_chapters_course_catalog.json -text whitespace=cr-at-eol
