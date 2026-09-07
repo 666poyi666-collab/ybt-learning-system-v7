@@ -1,8 +1,8 @@
 {
   "schema_version": "math-exam-visual-review-report-v1",
-  "generated_at": "2026-08-31T16:37:35.367887+00:00",
+  "generated_at": "2026-09-07T22:05:49.861062+00:00",
   "manifest": "data/exam_papers/manifest.json",
-  "manifest_generated_at": "2026-08-31T16:36:47.526476+00:00",
+  "manifest_generated_at": "2026-09-07T21:55:14.134599+00:00",
   "visual_review_gate_enabled": true,
   "legacy_manifest": false,
   "counts": {
@@ -14,7 +14,7 @@
     "routes_visual_verified": 74,
     "routes_visual_pending": 0,
     "routes_visual_blocked": 0,
-    "advertised_ready_routes": 44,
+    "advertised_ready_routes": 40,
     "advertised_ready_but_unverified": 0
   },
   "inconsistent_ready_route_ids": [],
@@ -237,8 +237,8 @@
       "route_id": "exam-280027cc9e6ccb5b:p2:q7:r1",
       "source_id": "exam-280027cc9e6ccb5b",
       "active": true,
-      "route_state": "blocked_external_prerequisite",
-      "route_status": "blocked",
+      "route_state": "needs_review",
+      "route_status": "needs_review",
       "visual_review_status": "verified",
       "required_pages": [
         2
@@ -311,8 +311,8 @@
       "route_id": "exam-280027cc9e6ccb5b:p3:q11:r1",
       "source_id": "exam-280027cc9e6ccb5b",
       "active": true,
-      "route_state": "blocked_external_prerequisite",
-      "route_status": "blocked",
+      "route_state": "needs_review",
+      "route_status": "needs_review",
       "visual_review_status": "verified",
       "required_pages": [
         3
@@ -587,10 +587,12 @@
       "route_status": "candidate",
       "visual_review_status": "verified",
       "required_pages": [
-        1
+        1,
+        2
       ],
       "verified_pages": [
-        1
+        1,
+        2
       ],
       "pending_pages": [],
       "blocked_pages": [],
@@ -619,8 +621,8 @@
       "route_id": "exam-6f9d44087bb37f8b:p2:q9:r1",
       "source_id": "exam-6f9d44087bb37f8b",
       "active": true,
-      "route_state": "ready_for_optional_unlock",
-      "route_status": "candidate",
+      "route_state": "needs_review",
+      "route_status": "needs_review",
       "visual_review_status": "verified",
       "required_pages": [
         2
@@ -630,7 +632,7 @@
       ],
       "pending_pages": [],
       "blocked_pages": [],
-      "advertised_ready": true,
+      "advertised_ready": false,
       "eligible_after_visual_review": true
     },
     {
@@ -673,8 +675,8 @@
       "route_id": "exam-6f9d44087bb37f8b:p2:q12:r1",
       "source_id": "exam-6f9d44087bb37f8b",
       "active": true,
-      "route_state": "ready_for_optional_unlock",
-      "route_status": "candidate",
+      "route_state": "needs_review",
+      "route_status": "needs_review",
       "visual_review_status": "verified",
       "required_pages": [
         2
@@ -684,15 +686,15 @@
       ],
       "pending_pages": [],
       "blocked_pages": [],
-      "advertised_ready": true,
+      "advertised_ready": false,
       "eligible_after_visual_review": true
     },
     {
       "route_id": "exam-6f9d44087bb37f8b:p2:q13:r1",
       "source_id": "exam-6f9d44087bb37f8b",
       "active": true,
-      "route_state": "ready_for_optional_unlock",
-      "route_status": "candidate",
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
       "visual_review_status": "verified",
       "required_pages": [
         2
@@ -702,7 +704,7 @@
       ],
       "pending_pages": [],
       "blocked_pages": [],
-      "advertised_ready": true,
+      "advertised_ready": false,
       "eligible_after_visual_review": true
     },
     {
@@ -857,10 +859,12 @@
       "route_status": "candidate",
       "visual_review_status": "verified",
       "required_pages": [
-        1
+        1,
+        2
       ],
       "verified_pages": [
-        1
+        1,
+        2
       ],
       "pending_pages": [],
       "blocked_pages": [],
@@ -943,8 +947,8 @@
       "route_id": "exam-9dcdf2f2023b5eba:p2:q13:r1",
       "source_id": "exam-9dcdf2f2023b5eba",
       "active": true,
-      "route_state": "ready_for_optional_unlock",
-      "route_status": "candidate",
+      "route_state": "needs_review",
+      "route_status": "needs_review",
       "visual_review_status": "verified",
       "required_pages": [
         2
@@ -954,7 +958,7 @@
       ],
       "pending_pages": [],
       "blocked_pages": [],
-      "advertised_ready": true,
+      "advertised_ready": false,
       "eligible_after_visual_review": true
     },
     {
@@ -1199,10 +1203,12 @@
       "route_status": "candidate",
       "visual_review_status": "verified",
       "required_pages": [
-        1
+        1,
+        2
       ],
       "verified_pages": [
-        1
+        1,
+        2
       ],
       "pending_pages": [],
       "blocked_pages": [],
@@ -1271,10 +1277,12 @@
       "route_status": "candidate",
       "visual_review_status": "verified",
       "required_pages": [
-        2
+        2,
+        3
       ],
       "verified_pages": [
-        2
+        2,
+        3
       ],
       "pending_pages": [],
       "blocked_pages": [],
