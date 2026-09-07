@@ -1,0 +1,14 @@
+{
+  "schema_version": "math-exam-answer-review-v1",
+  "sources": {
+    "exam-280027cc9e6ccb5b": {
+      "source_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "note": "文件只有8页，末页页脚标共15页；第10题解析仅到选项A，后续解析不在所给文件内。",
+      "solutions": {
+        "6": {"completeness": "source_page_only", "pages": [7], "note": "已目视定位第7页第6题完整解析；OCR未识别题号，必须读取原页，不以邻题文字替代。"},
+        "10": {"completeness": "partial", "pages": [8], "note": "末页仅含第10题选项A的解析；不能当作整题解析。"},
+        "11": {"completeness": "missing", "note": "选项表不等于详细解析，所给文件未包含本题解析页。"}
+      }
+    }
+  }
+}

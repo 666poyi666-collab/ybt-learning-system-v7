@@ -1,0 +1,1256 @@
+{
+  "schema_version": "math-exam-route-report-v1",
+  "generated_at": "2026-09-07T21:55:14.134599+00:00",
+  "summary": {
+    "source_count": 4,
+    "active_source_count": 4,
+    "route_count": 74,
+    "active_route_count": 74,
+    "ready_count": 40,
+    "review_count": 19,
+    "blocked_count": 15,
+    "question_page_count": 17,
+    "visual_verified_route_count": 74,
+    "visual_review_pending_route_count": 0,
+    "visual_review_blocked_route_count": 0
+  },
+  "sources": [
+    {
+      "active": true,
+      "lifecycle_status": "active",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "stable_source_id": "exam-e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "relative_path": "2024-2025学年湖南省岳阳市临湘市高二（上）期中数学试卷.pdf",
+      "file_name": "2024-2025学年湖南省岳阳市临湘市高二（上）期中数学试卷.pdf",
+      "source_role": "question_paper",
+      "question_authority": true,
+      "allowlisted": true,
+      "included_for_routes": true,
+      "page_count": 15,
+      "question_pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "answer_pdf_pages": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "question_page_ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "answer_page_ranges": [
+        [
+          6,
+          15
+        ]
+      ],
+      "answer_separation_status": "visually_verified",
+      "question_completeness": "complete",
+      "answer_completeness": "complete",
+      "question_count": 22,
+      "text_layer_pages": 5,
+      "ocr_question_pages": [],
+      "metadata_error": null,
+      "mapping_rule_status": "matched",
+      "visual_review_status": "verified",
+      "visual_reviewed_question_page_count": 5,
+      "visual_review_pending_question_pages": [],
+      "visual_review_blocked_question_pages": [],
+      "pages": [
+        {
+          "pdf_page": 1,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": true,
+          "text_char_count": 1036,
+          "text_sha256": "ea45c5148b27709b276c3acf7c0c22f0f72602cefdf564be0981163eb518d2e3",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": "data/exam_papers/page_assets/exam-e36f8b1c7340bdb7/page-001.jpg",
+          "page_image_sha256": "cb370e8a92d2c59a3ad0f23ae7e90b8a91bacb5b1eced289bc4db7922115d8b9",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "cb370e8a92d2c59a3ad0f23ae7e90b8a91bacb5b1eced289bc4db7922115d8b9"
+          }
+        },
+        {
+          "pdf_page": 2,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": true,
+          "text_char_count": 831,
+          "text_sha256": "e681899e9443f130df5dc9883d923f6a2a5d35a88f0dd33602235aefbcb4e41c",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": "data/exam_papers/page_assets/exam-e36f8b1c7340bdb7/page-002.jpg",
+          "page_image_sha256": "83821b666a98177970d412a94b2d7fe09bf8821c302bbf6d9dd5a80520d4da1d",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "83821b666a98177970d412a94b2d7fe09bf8821c302bbf6d9dd5a80520d4da1d"
+          }
+        },
+        {
+          "pdf_page": 3,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": true,
+          "text_char_count": 623,
+          "text_sha256": "920d291daf204fb5858c9cf079e12fd96b3aee2a23b614dc95293e73266e7f6e",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": "data/exam_papers/page_assets/exam-e36f8b1c7340bdb7/page-003.jpg",
+          "page_image_sha256": "7b91556c04fb1f54ee8a15a41387cfaa1eab39e1c0ea0d00213642aeca08c806",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "7b91556c04fb1f54ee8a15a41387cfaa1eab39e1c0ea0d00213642aeca08c806"
+          }
+        },
+        {
+          "pdf_page": 4,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": true,
+          "text_char_count": 386,
+          "text_sha256": "9572a6fbd0cfd2c7658472147e8a7bf7666b33b4327f45d3569ff7275a072a11",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": "data/exam_papers/page_assets/exam-e36f8b1c7340bdb7/page-004.jpg",
+          "page_image_sha256": "20942a03ad6ea8f23b7e9b559f8bc8199026aebad77e4ccb02d3fc8109bee5a2",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "20942a03ad6ea8f23b7e9b559f8bc8199026aebad77e4ccb02d3fc8109bee5a2"
+          }
+        },
+        {
+          "pdf_page": 5,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": true,
+          "text_char_count": 681,
+          "text_sha256": "b125e225a22635cd27fc66253954f00c7a953fa123d394fe37ed2a7d62095a0c",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": "data/exam_papers/page_assets/exam-e36f8b1c7340bdb7/page-005.jpg",
+          "page_image_sha256": "11ebfd9a39b317248e18ec2279bab7bd07c9756bfb1d4bcea22a84a6242213d3",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "11ebfd9a39b317248e18ec2279bab7bd07c9756bfb1d4bcea22a84a6242213d3"
+          }
+        },
+        {
+          "pdf_page": 6,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1090,
+          "text_sha256": "dedf012820cb48937fed19d85190f2413711d7104cf9d5e79f072533862e650e",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 7,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1112,
+          "text_sha256": "549a25c584a9aa553cca8af47b4ac4c20a43ace792e639dc71780cfc2840b9ef",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 8,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1527,
+          "text_sha256": "b4c61be9a20072159abcfe0cf928580d1f983e102d81b816ea96f1ec6940f356",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 9,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1121,
+          "text_sha256": "0a955b97bae0fc5ee328d37d15780290a4959e1fed345a928597fdd632fc73da",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 10,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 704,
+          "text_sha256": "f324e7b5ff11df9c0efaeec69c8a95c8989592b64c581f2c199931615ae6590e",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 11,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1087,
+          "text_sha256": "5237a94c7924278f86751ce156ebf48d8df80fc0c2f378ba7714af836fdd0849",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 12,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 953,
+          "text_sha256": "d4f08e7b2cac44cde9bc55bd9efb2473a25fa9faf842fa182c9129429ccc6e05",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 13,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1606,
+          "text_sha256": "64557185ee3f87f0d41039e958d674622f856ed11c0caf9c0b781ac7668c4ca3",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 14,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1338,
+          "text_sha256": "b1767110cd893da5f63b8c54b48013e36aeb2286c9e1b7d5167d54467ac95b51",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 15,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 866,
+          "text_sha256": "07a7f7f85dc765707145749073c7d1afa6963a294cb168f6be8adc9f3060eb0e",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        }
+      ],
+      "source_path_policy": "external_source_root; original PDF is not copied into repository",
+      "question_ids": [
+        "exam-e36f8b1c7340bdb7:p1:q1:r1",
+        "exam-e36f8b1c7340bdb7:p1:q2:r1",
+        "exam-e36f8b1c7340bdb7:p1:q3:r1",
+        "exam-e36f8b1c7340bdb7:p1:q4:r1",
+        "exam-e36f8b1c7340bdb7:p1:q5:r1",
+        "exam-e36f8b1c7340bdb7:p1:q6:r1",
+        "exam-e36f8b1c7340bdb7:p1:q7:r1",
+        "exam-e36f8b1c7340bdb7:p1:q8:r1",
+        "exam-e36f8b1c7340bdb7:p2:q9:r1",
+        "exam-e36f8b1c7340bdb7:p2:q10:r1",
+        "exam-e36f8b1c7340bdb7:p2:q11:r1",
+        "exam-e36f8b1c7340bdb7:p2:q12:r1",
+        "exam-e36f8b1c7340bdb7:p3:q13:r1",
+        "exam-e36f8b1c7340bdb7:p3:q14:r1",
+        "exam-e36f8b1c7340bdb7:p3:q15:r1",
+        "exam-e36f8b1c7340bdb7:p3:q16:r1",
+        "exam-e36f8b1c7340bdb7:p3:q17:r1",
+        "exam-e36f8b1c7340bdb7:p4:q18:r1",
+        "exam-e36f8b1c7340bdb7:p4:q19:r1",
+        "exam-e36f8b1c7340bdb7:p4:q20:r1",
+        "exam-e36f8b1c7340bdb7:p5:q21:r1",
+        "exam-e36f8b1c7340bdb7:p5:q22:r1"
+      ],
+      "route_count": 22,
+      "route_review_count": 0,
+      "route_blocked_count": 2
+    },
+    {
+      "active": true,
+      "lifecycle_status": "active",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "stable_source_id": "exam-9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "relative_path": "2025-2026学年湖南省岳阳楼区高二（上）期末数学试卷.pdf",
+      "file_name": "2025-2026学年湖南省岳阳楼区高二（上）期末数学试卷.pdf",
+      "source_role": "question_paper",
+      "question_authority": true,
+      "allowlisted": true,
+      "included_for_routes": true,
+      "page_count": 13,
+      "question_pdf_pages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "answer_pdf_pages": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "question_page_ranges": [
+        [
+          1,
+          4
+        ]
+      ],
+      "answer_page_ranges": [
+        [
+          5,
+          13
+        ]
+      ],
+      "answer_separation_status": "visually_verified",
+      "question_completeness": "complete",
+      "answer_completeness": "complete",
+      "question_count": 19,
+      "text_layer_pages": 4,
+      "ocr_question_pages": [],
+      "metadata_error": null,
+      "mapping_rule_status": "matched",
+      "visual_review_status": "verified",
+      "visual_reviewed_question_page_count": 4,
+      "visual_review_pending_question_pages": [],
+      "visual_review_blocked_question_pages": [],
+      "pages": [
+        {
+          "pdf_page": 1,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": true,
+          "text_char_count": 1212,
+          "text_sha256": "453959d9bc98ac3ae928f65b8600c46fb9d850b8f9d6a2d71c777d907e4deed8",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": "data/exam_papers/page_assets/exam-9dcdf2f2023b5eba/page-001.jpg",
+          "page_image_sha256": "82b1e85cc2b991a358ad04ce26c1ec5a35c32ba88fc34322d355e53db68f0108",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "82b1e85cc2b991a358ad04ce26c1ec5a35c32ba88fc34322d355e53db68f0108"
+          }
+        },
+        {
+          "pdf_page": 2,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": true,
+          "text_char_count": 1137,
+          "text_sha256": "95c447fd5e6eff4821ed7b1b5285cb31a35e9c433396723d52328d1620569b89",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": "data/exam_papers/page_assets/exam-9dcdf2f2023b5eba/page-002.jpg",
+          "page_image_sha256": "5e61dd75251f0ab8634b47e801322a7f26e068ff306dbee95d4fb0ec13066423",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "5e61dd75251f0ab8634b47e801322a7f26e068ff306dbee95d4fb0ec13066423"
+          }
+        },
+        {
+          "pdf_page": 3,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": true,
+          "text_char_count": 454,
+          "text_sha256": "a9fd6387009c9973cbb2a1762a85e255d2c69b9cc745aac02153302bb7a98090",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": "data/exam_papers/page_assets/exam-9dcdf2f2023b5eba/page-003.jpg",
+          "page_image_sha256": "4339480d8e8f1daa41d544e39ee954239ef60556a0115d8e053c27e772378e52",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "4339480d8e8f1daa41d544e39ee954239ef60556a0115d8e053c27e772378e52"
+          }
+        },
+        {
+          "pdf_page": 4,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": true,
+          "text_char_count": 591,
+          "text_sha256": "862cf7531c7f22beff9f5fb7e6621c923d6c7904b92c9ddc3dd44b0340f4eb70",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": "data/exam_papers/page_assets/exam-9dcdf2f2023b5eba/page-004.jpg",
+          "page_image_sha256": "88c85cdb2d2d8e3c45889c0f7501b88e950320fa7805f2d6df8b2e3d8bd5abca",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "88c85cdb2d2d8e3c45889c0f7501b88e950320fa7805f2d6df8b2e3d8bd5abca"
+          }
+        },
+        {
+          "pdf_page": 5,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1146,
+          "text_sha256": "f619bcdca2fc903ad5242ebb0a9b5ef3462cc535f2182d334731dff2bc701645",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 6,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1322,
+          "text_sha256": "e4d0b4cecebc7c67427398c0856022dd5a981f241b7212bddf4d0f7410b6c353",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 7,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1285,
+          "text_sha256": "e9c9b78d72479d6f25fb8eef4b1f7a802b904c4dbed397e572075401e20bca1f",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 8,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1163,
+          "text_sha256": "9a4d1839d30c7a2989df42bbf754baa2a95ac415ada06903f618c14d26980bb3",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 9,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1039,
+          "text_sha256": "461b1d459d345fabfec5184722957e9dc6e75b6e1ba082c21787b5efe2bfdd18",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 10,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1232,
+          "text_sha256": "b6a2c7c6637661d6faf3a45b88bb96f8211701c303126703c3462b7217a29db7",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 11,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1708,
+          "text_sha256": "e6d22e176e84bb6048992c0858788caf60424790295e14a0f2d579c673b9254e",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 12,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1132,
+          "text_sha256": "d71c744399b3c0b5d496e34b8adbf62b6f385eb1900ffac17c4691e02fc3c5c4",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 13,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 252,
+          "text_sha256": "cf487628dfd998d09f1c9c395fae6f43d5c3743b2d206d19aaf441968b6d24d3",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        }
+      ],
+      "source_path_policy": "external_source_root; original PDF is not copied into repository",
+      "question_ids": [
+        "exam-9dcdf2f2023b5eba:p1:q1:r1",
+        "exam-9dcdf2f2023b5eba:p1:q2:r1",
+        "exam-9dcdf2f2023b5eba:p1:q3:r1",
+        "exam-9dcdf2f2023b5eba:p1:q4:r1",
+        "exam-9dcdf2f2023b5eba:p1:q5:r1",
+        "exam-9dcdf2f2023b5eba:p1:q6:r1",
+        "exam-9dcdf2f2023b5eba:p1:q7:r1",
+        "exam-9dcdf2f2023b5eba:p1:q8:r1",
+        "exam-9dcdf2f2023b5eba:p2:q9:r1",
+        "exam-9dcdf2f2023b5eba:p2:q10:r1",
+        "exam-9dcdf2f2023b5eba:p2:q11:r1",
+        "exam-9dcdf2f2023b5eba:p2:q12:r1",
+        "exam-9dcdf2f2023b5eba:p2:q13:r1",
+        "exam-9dcdf2f2023b5eba:p2:q14:r1",
+        "exam-9dcdf2f2023b5eba:p3:q15:r1",
+        "exam-9dcdf2f2023b5eba:p3:q16:r1",
+        "exam-9dcdf2f2023b5eba:p3:q17:r1",
+        "exam-9dcdf2f2023b5eba:p4:q18:r1",
+        "exam-9dcdf2f2023b5eba:p4:q19:r1"
+      ],
+      "route_count": 19,
+      "route_review_count": 1,
+      "route_blocked_count": 6
+    },
+    {
+      "active": true,
+      "lifecycle_status": "active",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "stable_source_id": "exam-280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "relative_path": "2025湖南长沙市高二数学上学期期中试题.pdf",
+      "file_name": "2025湖南长沙市高二数学上学期期中试题.pdf",
+      "source_role": "question_paper",
+      "question_authority": true,
+      "allowlisted": true,
+      "included_for_routes": true,
+      "page_count": 8,
+      "question_pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "answer_pdf_pages": [
+        6,
+        7,
+        8
+      ],
+      "question_page_ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "answer_page_ranges": [
+        [
+          6,
+          8
+        ]
+      ],
+      "answer_separation_status": "visually_verified",
+      "question_completeness": "complete",
+      "answer_completeness": "partial_source_file",
+      "question_count": 19,
+      "text_layer_pages": 0,
+      "ocr_question_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "metadata_error": null,
+      "mapping_rule_status": "matched",
+      "visual_review_status": "verified",
+      "visual_reviewed_question_page_count": 5,
+      "visual_review_pending_question_pages": [],
+      "visual_review_blocked_question_pages": [],
+      "pages": [
+        {
+          "pdf_page": 1,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": false,
+          "text_char_count": 759,
+          "text_sha256": "ef9f4d14b0dd6fffd7ce5f08cb845738926d198f06507792560a0c1e90f5c6ba",
+          "ocr_status": "used",
+          "ocr_text_sha256": "ef9f4d14b0dd6fffd7ce5f08cb845738926d198f06507792560a0c1e90f5c6ba",
+          "ocr_confidence": 0.9608556901095793,
+          "page_image_path": "data/exam_papers/page_assets/exam-280027cc9e6ccb5b/page-001.jpg",
+          "page_image_sha256": "a19080201d664fac5a7a5f69107feb2f3733f9552609235fe2fc4735148f46cf",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "a19080201d664fac5a7a5f69107feb2f3733f9552609235fe2fc4735148f46cf"
+          }
+        },
+        {
+          "pdf_page": 2,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": false,
+          "text_char_count": 569,
+          "text_sha256": "de48bd0e841051f2e5c0cc9e4ff8a42ae61239c247ad17c89b94cc9d8bc58795",
+          "ocr_status": "used",
+          "ocr_text_sha256": "de48bd0e841051f2e5c0cc9e4ff8a42ae61239c247ad17c89b94cc9d8bc58795",
+          "ocr_confidence": 0.9541420420471328,
+          "page_image_path": "data/exam_papers/page_assets/exam-280027cc9e6ccb5b/page-002.jpg",
+          "page_image_sha256": "2ab9a6bd5a1752f74d6e7b663a9f4a5d7cd13748acd20688a91af3e67c9de31f",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "2ab9a6bd5a1752f74d6e7b663a9f4a5d7cd13748acd20688a91af3e67c9de31f"
+          }
+        },
+        {
+          "pdf_page": 3,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": false,
+          "text_char_count": 668,
+          "text_sha256": "bad3166ed299985be9bf74133267f95e820e9e843d5a4f0bd344d94747eb45ed",
+          "ocr_status": "used",
+          "ocr_text_sha256": "bad3166ed299985be9bf74133267f95e820e9e843d5a4f0bd344d94747eb45ed",
+          "ocr_confidence": 0.9474820093438445,
+          "page_image_path": "data/exam_papers/page_assets/exam-280027cc9e6ccb5b/page-003.jpg",
+          "page_image_sha256": "21e8caddfe39c26a7290ff3b123a6611418992573a8781177cc4f8e8b171c0bc",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "21e8caddfe39c26a7290ff3b123a6611418992573a8781177cc4f8e8b171c0bc"
+          }
+        },
+        {
+          "pdf_page": 4,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": false,
+          "text_char_count": 740,
+          "text_sha256": "6b481bf9d161a81e75eb92c23d6cd9ce6356c38b3525be35e02d4c2d91143058",
+          "ocr_status": "used",
+          "ocr_text_sha256": "6b481bf9d161a81e75eb92c23d6cd9ce6356c38b3525be35e02d4c2d91143058",
+          "ocr_confidence": 0.9698050824782894,
+          "page_image_path": "data/exam_papers/page_assets/exam-280027cc9e6ccb5b/page-004.jpg",
+          "page_image_sha256": "f56dca0d70690387b2be87103480050a566a3eeea4eff6181d4661c111ce5440",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "f56dca0d70690387b2be87103480050a566a3eeea4eff6181d4661c111ce5440"
+          }
+        },
+        {
+          "pdf_page": 5,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": false,
+          "text_char_count": 119,
+          "text_sha256": "44aa564cf8bd17435637aeb1fcc93e754154b5b09821ff96ce73acc4d64c883a",
+          "ocr_status": "used",
+          "ocr_text_sha256": "44aa564cf8bd17435637aeb1fcc93e754154b5b09821ff96ce73acc4d64c883a",
+          "ocr_confidence": 0.9349101819937257,
+          "page_image_path": "data/exam_papers/page_assets/exam-280027cc9e6ccb5b/page-005.jpg",
+          "page_image_sha256": "1fad2daccb29723e408d9ab3563828fb51dc988651fb0e77ca2088f707469234",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "1fad2daccb29723e408d9ab3563828fb51dc988651fb0e77ca2088f707469234"
+          }
+        },
+        {
+          "pdf_page": 6,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": false,
+          "text_char_count": 0,
+          "text_sha256": null,
+          "ocr_status": "unavailable",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 7,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": false,
+          "text_char_count": 0,
+          "text_sha256": null,
+          "ocr_status": "unavailable",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 8,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": false,
+          "text_char_count": 0,
+          "text_sha256": null,
+          "ocr_status": "unavailable",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        }
+      ],
+      "source_path_policy": "external_source_root; original PDF is not copied into repository",
+      "question_ids": [
+        "exam-280027cc9e6ccb5b:p1:q1:r1",
+        "exam-280027cc9e6ccb5b:p1:q2:r1",
+        "exam-280027cc9e6ccb5b:p1:q3:r1",
+        "exam-280027cc9e6ccb5b:p1:q4:r1",
+        "exam-280027cc9e6ccb5b:p1:q5:r1",
+        "exam-280027cc9e6ccb5b:p1:q6:r1",
+        "exam-280027cc9e6ccb5b:p2:q7:r1",
+        "exam-280027cc9e6ccb5b:p2:q8:r1",
+        "exam-280027cc9e6ccb5b:p2:q9:r1",
+        "exam-280027cc9e6ccb5b:p2:q10:r1",
+        "exam-280027cc9e6ccb5b:p3:q11:r1",
+        "exam-280027cc9e6ccb5b:p3:q12:r1",
+        "exam-280027cc9e6ccb5b:p3:q13:r1",
+        "exam-280027cc9e6ccb5b:p3:q14:r1",
+        "exam-280027cc9e6ccb5b:p3:q15:r1",
+        "exam-280027cc9e6ccb5b:p4:q16:r1",
+        "exam-280027cc9e6ccb5b:p4:q17:r1",
+        "exam-280027cc9e6ccb5b:p4:q18:r1",
+        "exam-280027cc9e6ccb5b:p4:q19:r1"
+      ],
+      "route_count": 19,
+      "route_review_count": 16,
+      "route_blocked_count": 3
+    },
+    {
+      "active": true,
+      "lifecycle_status": "active",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "stable_source_id": "exam-6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "relative_path": "湖南省临湘市第二中学2024-2025学年高二上学期期中考试数学试卷（11.24）.pdf",
+      "file_name": "湖南省临湘市第二中学2024-2025学年高二上学期期中考试数学试卷（11.24）.pdf",
+      "source_role": "question_paper",
+      "question_authority": true,
+      "allowlisted": true,
+      "included_for_routes": true,
+      "page_count": 8,
+      "question_pdf_pages": [
+        1,
+        2,
+        3
+      ],
+      "answer_pdf_pages": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "question_page_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "answer_page_ranges": [
+        [
+          4,
+          8
+        ]
+      ],
+      "answer_separation_status": "visually_verified",
+      "question_completeness": "complete",
+      "answer_completeness": "complete",
+      "question_count": 14,
+      "text_layer_pages": 3,
+      "ocr_question_pages": [],
+      "metadata_error": null,
+      "mapping_rule_status": "matched",
+      "visual_review_status": "verified",
+      "visual_reviewed_question_page_count": 3,
+      "visual_review_pending_question_pages": [],
+      "visual_review_blocked_question_pages": [],
+      "pages": [
+        {
+          "pdf_page": 1,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": true,
+          "text_char_count": 517,
+          "text_sha256": "c09d8597d468be2b8ce181984757eede35644950d835e4d5cbc2e049c4fdbaae",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": "data/exam_papers/page_assets/exam-6f9d44087bb37f8b/page-001.jpg",
+          "page_image_sha256": "58c49cee3a8e4c169efea39f394a94b1ed054eb7cc25df0c6509c65caaebbed9",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "58c49cee3a8e4c169efea39f394a94b1ed054eb7cc25df0c6509c65caaebbed9"
+          }
+        },
+        {
+          "pdf_page": 2,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": true,
+          "text_char_count": 336,
+          "text_sha256": "c783ee9cac2ba421715bddf1e99b4bf57870a17352dd478b183ada7d7ab8060d",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": "data/exam_papers/page_assets/exam-6f9d44087bb37f8b/page-002.jpg",
+          "page_image_sha256": "6d87e57e5df96c6fd325d786ba09d9fb753521301c0b145149e4c26b793c68ec",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "6d87e57e5df96c6fd325d786ba09d9fb753521301c0b145149e4c26b793c68ec"
+          }
+        },
+        {
+          "pdf_page": 3,
+          "page_role": "question",
+          "question_authority": true,
+          "text_layer_available": true,
+          "text_char_count": 261,
+          "text_sha256": "7b4732c3fdf8889394e979b6985c1099db94046725a4484d8893c3cae74a8805",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": "data/exam_papers/page_assets/exam-6f9d44087bb37f8b/page-003.jpg",
+          "page_image_sha256": "6350c4ec3f0ceb7b7c30b1de7917d3b9cc3571e497630dd959b266796c530759",
+          "visual_status": "VISUALLY_VERIFIED",
+          "visual_review_status": "verified",
+          "visual_review_evidence": {
+            "status": "verified",
+            "source": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+            "reviewer": "mapping_repair",
+            "reviewed_at": "2026-09-07",
+            "method": "native_view_image_full_page_read",
+            "evidence_sha256": "6350c4ec3f0ceb7b7c30b1de7917d3b9cc3571e497630dd959b266796c530759"
+          }
+        },
+        {
+          "pdf_page": 4,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 802,
+          "text_sha256": "ff6122dc8f3272120369cd5e968518189b77add69570ffdd625f2f89267e869a",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 5,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 873,
+          "text_sha256": "020b3065784faf9e83436e3c6066fe2e8023830fb815dc2dc72ddfaac48bfc93",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 6,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1282,
+          "text_sha256": "7c68b853994c16f0af3a26f256ed26ee4de7bc6926d5a569d271bbbc3af50933",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 7,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 1210,
+          "text_sha256": "9376549870b5f5a114ba6ab04de92ff25dce39d2f0e8ea0861d7869822cb3bc5",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        },
+        {
+          "pdf_page": 8,
+          "page_role": "answer",
+          "question_authority": false,
+          "text_layer_available": true,
+          "text_char_count": 563,
+          "text_sha256": "8c5009d0b1a89b51940874f97f797451a6df09e960efe2e5e013cb231ad1097c",
+          "ocr_status": "not_needed",
+          "ocr_text_sha256": null,
+          "ocr_confidence": null,
+          "page_image_path": null,
+          "page_image_sha256": null,
+          "visual_status": "NOT_LEARNER_SOURCE",
+          "visual_review_status": "not_applicable",
+          "visual_review_evidence": {
+            "source": "not_a_question_page",
+            "status": "not_applicable"
+          }
+        }
+      ],
+      "source_path_policy": "external_source_root; original PDF is not copied into repository",
+      "question_ids": [
+        "exam-6f9d44087bb37f8b:p1:q1:r1",
+        "exam-6f9d44087bb37f8b:p1:q2:r1",
+        "exam-6f9d44087bb37f8b:p1:q3:r1",
+        "exam-6f9d44087bb37f8b:p1:q4:r1",
+        "exam-6f9d44087bb37f8b:p1:q5:r1",
+        "exam-6f9d44087bb37f8b:p1:q6:r1",
+        "exam-6f9d44087bb37f8b:p1:q7:r1",
+        "exam-6f9d44087bb37f8b:p2:q8:r1",
+        "exam-6f9d44087bb37f8b:p2:q9:r1",
+        "exam-6f9d44087bb37f8b:p2:q10:r1",
+        "exam-6f9d44087bb37f8b:p2:q11:r1",
+        "exam-6f9d44087bb37f8b:p2:q12:r1",
+        "exam-6f9d44087bb37f8b:p2:q13:r1",
+        "exam-6f9d44087bb37f8b:p3:q14:r1"
+      ],
+      "route_count": 14,
+      "route_review_count": 2,
+      "route_blocked_count": 4
+    }
+  ],
+  "route_status_counts": {
+    "blocked": 15,
+    "candidate": 40,
+    "needs_review": 19
+  }
+}

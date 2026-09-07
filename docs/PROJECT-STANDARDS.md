@@ -4,7 +4,7 @@
 
 `docs/PRODUCT-REQUIREMENTS.md` is the maintained product contract. Current explicit user instructions override it; update the contract and `docs/DEVLOG.md` in the same change when scope or behavior changes.
 
-The active delivery scope is chapters 1 and 2. Chapter 3-5 artifacts remain readable historical assets but are not current acceptance evidence.
+The active delivery scope is all five chapters and 38 canonical sections. Chapter 1 section 1 remains a continuous regression sample; it does not block the other sections.
 
 ## Architecture And Ownership
 

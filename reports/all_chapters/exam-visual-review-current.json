@@ -1,0 +1,1465 @@
+{
+  "schema_version": "math-exam-visual-review-report-v1",
+  "generated_at": "2026-08-31T16:37:35.367887+00:00",
+  "manifest": "data/exam_papers/manifest.json",
+  "manifest_generated_at": "2026-08-31T16:36:47.526476+00:00",
+  "visual_review_gate_enabled": true,
+  "legacy_manifest": false,
+  "counts": {
+    "question_pages": 17,
+    "page_verified": 17,
+    "page_pending": 0,
+    "page_blocked": 0,
+    "routes": 74,
+    "routes_visual_verified": 74,
+    "routes_visual_pending": 0,
+    "routes_visual_blocked": 0,
+    "advertised_ready_routes": 44,
+    "advertised_ready_but_unverified": 0
+  },
+  "inconsistent_ready_route_ids": [],
+  "pages": [
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "pdf_page": 1,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "pdf_page": 2,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "pdf_page": 3,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "pdf_page": 4,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "pdf_page": 5,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "pdf_page": 1,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "pdf_page": 2,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "pdf_page": 3,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "pdf_page": 1,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "pdf_page": 2,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "pdf_page": 3,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "pdf_page": 4,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "pdf_page": 1,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "pdf_page": 2,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "pdf_page": 3,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "pdf_page": 4,
+      "status": "verified",
+      "page_image_sha256_present": true
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "pdf_page": 5,
+      "status": "verified",
+      "page_image_sha256_present": true
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p1:q1:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "needs_review",
+      "route_status": "needs_review",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p1:q2:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "needs_review",
+      "route_status": "needs_review",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p1:q3:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "needs_review",
+      "route_status": "needs_review",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p1:q4:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p1:q5:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "needs_review",
+      "route_status": "needs_review",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p1:q6:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1,
+        2
+      ],
+      "verified_pages": [
+        1,
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p2:q7:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p2:q8:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "needs_review",
+      "route_status": "needs_review",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p2:q9:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p2:q10:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "needs_review",
+      "route_status": "needs_review",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2,
+        3
+      ],
+      "verified_pages": [
+        2,
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p3:q11:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        3
+      ],
+      "verified_pages": [
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p3:q12:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "needs_review",
+      "route_status": "needs_review",
+      "visual_review_status": "verified",
+      "required_pages": [
+        3
+      ],
+      "verified_pages": [
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p3:q13:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "needs_review",
+      "route_status": "needs_review",
+      "visual_review_status": "verified",
+      "required_pages": [
+        3
+      ],
+      "verified_pages": [
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p3:q14:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "needs_review",
+      "route_status": "needs_review",
+      "visual_review_status": "verified",
+      "required_pages": [
+        3
+      ],
+      "verified_pages": [
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p3:q15:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "needs_review",
+      "route_status": "needs_review",
+      "visual_review_status": "verified",
+      "required_pages": [
+        3
+      ],
+      "verified_pages": [
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p4:q16:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "needs_review",
+      "route_status": "needs_review",
+      "visual_review_status": "verified",
+      "required_pages": [
+        4
+      ],
+      "verified_pages": [
+        4
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p4:q17:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "needs_review",
+      "route_status": "needs_review",
+      "visual_review_status": "verified",
+      "required_pages": [
+        4
+      ],
+      "verified_pages": [
+        4
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p4:q18:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "needs_review",
+      "route_status": "needs_review",
+      "visual_review_status": "verified",
+      "required_pages": [
+        4
+      ],
+      "verified_pages": [
+        4
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-280027cc9e6ccb5b:p4:q19:r1",
+      "source_id": "exam-280027cc9e6ccb5b",
+      "active": true,
+      "route_state": "needs_review",
+      "route_status": "needs_review",
+      "visual_review_status": "verified",
+      "required_pages": [
+        4,
+        5
+      ],
+      "verified_pages": [
+        4,
+        5
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-6f9d44087bb37f8b:p1:q1:r1",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-6f9d44087bb37f8b:p1:q2:r1",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-6f9d44087bb37f8b:p1:q3:r1",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-6f9d44087bb37f8b:p1:q4:r1",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-6f9d44087bb37f8b:p1:q5:r1",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-6f9d44087bb37f8b:p1:q6:r1",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-6f9d44087bb37f8b:p1:q7:r1",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-6f9d44087bb37f8b:p2:q8:r1",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-6f9d44087bb37f8b:p2:q9:r1",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-6f9d44087bb37f8b:p2:q10:r1",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-6f9d44087bb37f8b:p2:q11:r1",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-6f9d44087bb37f8b:p2:q12:r1",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-6f9d44087bb37f8b:p2:q13:r1",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-6f9d44087bb37f8b:p3:q14:r1",
+      "source_id": "exam-6f9d44087bb37f8b",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        3
+      ],
+      "verified_pages": [
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p1:q1:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p1:q2:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p1:q3:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p1:q4:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p1:q5:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p1:q6:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p1:q7:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p1:q8:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p2:q9:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p2:q10:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p2:q11:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p2:q12:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p2:q13:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p2:q14:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p3:q15:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        3
+      ],
+      "verified_pages": [
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p3:q16:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        3
+      ],
+      "verified_pages": [
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p3:q17:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        3
+      ],
+      "verified_pages": [
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p4:q18:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        4
+      ],
+      "verified_pages": [
+        4
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-9dcdf2f2023b5eba:p4:q19:r1",
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        4
+      ],
+      "verified_pages": [
+        4
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p1:q1:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p1:q2:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p1:q3:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p1:q4:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p1:q5:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p1:q6:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p1:q7:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p1:q8:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        1
+      ],
+      "verified_pages": [
+        1
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p2:q9:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p2:q10:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p2:q11:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p2:q12:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        2
+      ],
+      "verified_pages": [
+        2
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p3:q13:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        3
+      ],
+      "verified_pages": [
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p3:q14:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        3
+      ],
+      "verified_pages": [
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p3:q15:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        3
+      ],
+      "verified_pages": [
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p3:q16:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        3
+      ],
+      "verified_pages": [
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p3:q17:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        3
+      ],
+      "verified_pages": [
+        3
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p4:q18:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        4
+      ],
+      "verified_pages": [
+        4
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p4:q19:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        4
+      ],
+      "verified_pages": [
+        4
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p4:q20:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        4
+      ],
+      "verified_pages": [
+        4
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p5:q21:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "ready_for_optional_unlock",
+      "route_status": "candidate",
+      "visual_review_status": "verified",
+      "required_pages": [
+        5
+      ],
+      "verified_pages": [
+        5
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": true,
+      "eligible_after_visual_review": true
+    },
+    {
+      "route_id": "exam-e36f8b1c7340bdb7:p5:q22:r1",
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "active": true,
+      "route_state": "blocked_external_prerequisite",
+      "route_status": "blocked",
+      "visual_review_status": "verified",
+      "required_pages": [
+        5
+      ],
+      "verified_pages": [
+        5
+      ],
+      "pending_pages": [],
+      "blocked_pages": [],
+      "advertised_ready": false,
+      "eligible_after_visual_review": true
+    }
+  ]
+}

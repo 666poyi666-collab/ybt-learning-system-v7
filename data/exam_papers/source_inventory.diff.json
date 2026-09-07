@@ -1,0 +1,68 @@
+{
+  "schema_version": "math-exam-source-diff-v1",
+  "generated_at": "2026-09-07T21:55:36.564903+00:00",
+  "source_root_label": "Downloads",
+  "inventory_sha256": "f9ed012a25d69e8e0c2c405586a1ef24626fff6dd39ad74f2352c09f6b01b55b",
+  "incremental": {
+    "mode": "incremental",
+    "new_source_ids": [],
+    "unchanged_source_ids": [],
+    "changed_source_ids": [
+      "exam-280027cc9e6ccb5b",
+      "exam-6f9d44087bb37f8b",
+      "exam-9dcdf2f2023b5eba",
+      "exam-e36f8b1c7340bdb7"
+    ],
+    "evidence_changed_source_ids": [
+      "exam-280027cc9e6ccb5b",
+      "exam-6f9d44087bb37f8b",
+      "exam-9dcdf2f2023b5eba",
+      "exam-e36f8b1c7340bdb7"
+    ],
+    "path_changed_source_ids": [],
+    "removed_source_ids": [],
+    "deallowed_source_ids": [],
+    "newly_allowlisted_source_ids": [],
+    "currently_deallowed_source_ids": [],
+    "replaced_sources": [],
+    "source_changes": [
+      {
+        "status": "evidence_changed",
+        "source_id": "exam-280027cc9e6ccb5b",
+        "evidence_sha256": "9c815a0a89163df8ad7d4e47db11da31e6cd5ff4862cc8a9188e7892711d83d5"
+      },
+      {
+        "status": "evidence_changed",
+        "source_id": "exam-6f9d44087bb37f8b",
+        "evidence_sha256": "0b96d6bd463ad9bb5d8934a8faf285101748261cb78ef4d49507555f96c0d12d"
+      },
+      {
+        "status": "evidence_changed",
+        "source_id": "exam-9dcdf2f2023b5eba",
+        "evidence_sha256": "b9426f2b84e28b27057bdeeff25d8d67e0b64ba3ed9387853a44eac7d7e9a79d"
+      },
+      {
+        "status": "evidence_changed",
+        "source_id": "exam-e36f8b1c7340bdb7",
+        "evidence_sha256": "c0a6ea722f619ac9a653ae3cff9342e4d10deac49e45aba634f5dc14e0c56387"
+      }
+    ],
+    "allowlist_changed": true,
+    "allowlist_added_tokens": [
+      "2024-2025学年湖南省岳阳市临湘市高二（上）期中数学试卷.pdf",
+      "2025-2026学年湖南省岳阳楼区高二（上）期末数学试卷.pdf",
+      "2025湖南长沙市高二数学上学期期中试题.pdf",
+      "湖南省临湘市第二中学2024-2025学年高二上学期期中考试数学试卷（11.24）.pdf"
+    ],
+    "allowlist_removed_tokens": [],
+    "previous_inventory_sha256": null,
+    "allowlist_sha256": "86efdde633732a81f4c349ddd79f13c26fc68695f308e754bc98c698f152537c",
+    "current_inventory_sha256": "f9ed012a25d69e8e0c2c405586a1ef24626fff6dd39ad74f2352c09f6b01b55b"
+  },
+  "counts": {
+    "sources": 4,
+    "files_scanned": 4,
+    "files_discovered": 4534,
+    "questions": 74
+  }
+}

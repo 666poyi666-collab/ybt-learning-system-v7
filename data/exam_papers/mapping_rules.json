@@ -1,0 +1,2198 @@
+{
+  "schema_version": "math-exam-route-rules-v1",
+  "scope": "选择性必修1已覆盖的章节；未覆盖的先修内容只登记为阻塞，不自动解锁",
+  "profiles": {
+    "spatial_vector_coordinate_parallel": {
+      "sections": [
+        "1.2+1.3"
+      ],
+      "cycle_ids": [
+        "1.1-cycle-1",
+        "1.2_1.3-cycle-1",
+        "1.2_1.3-cycle-2",
+        "1.2_1.3-cycle-3",
+        "1.2_1.3-cycle-4",
+        "1.2_1.3-cycle-5",
+        "1.2_1.3-cycle-6",
+        "1.2_1.3-cycle-7"
+      ],
+      "course_keys": [
+        "space_vector_ops",
+        "decomposition",
+        "equal_surface",
+        "coordinate_system",
+        "coordinate_ops"
+      ],
+      "cycle_prefix": {
+        "1.2+1.3": 8
+      },
+      "tags": [
+        "空间向量",
+        "坐标表示",
+        "平行/垂直判定"
+      ]
+    },
+    "spatial_vector_basis": {
+      "sections": [
+        "1.1",
+        "1.2+1.3"
+      ],
+      "cycle_ids": [
+        "1.1-cycle-1",
+        "1.1-cycle-2",
+        "1.2_1.3-cycle-1",
+        "1.2_1.3-cycle-4"
+      ],
+      "course_keys": [
+        "space_vector_ops",
+        "decomposition",
+        "equal_surface",
+        "coordinate_ops"
+      ],
+      "cycle_prefix": {
+        "1.1": 5,
+        "1.2+1.3": 4
+      },
+      "tags": [
+        "空间向量",
+        "基底",
+        "线性表示"
+      ]
+    },
+    "spatial_vector_dot_length": {
+      "sections": [
+        "1.1",
+        "1.2+1.3"
+      ],
+      "cycle_ids": [
+        "1.1-cycle-1",
+        "1.1-cycle-2",
+        "1.1-cycle-5",
+        "1.1-cycle-6",
+        "1.1-cycle-7"
+      ],
+      "course_keys": [
+        "space_vector_ops",
+        "decomposition",
+        "line_line_angle"
+      ],
+      "cycle_prefix": {
+        "1.1": 7,
+        "1.2+1.3": 8
+      },
+      "tags": [
+        "空间向量",
+        "数量积",
+        "模长/夹角"
+      ]
+    },
+    "spatial_vector_coordinate_dot": {
+      "sections": [
+        "1.1",
+        "1.2+1.3"
+      ],
+      "cycle_ids": [
+        "1.1-cycle-1",
+        "1.2_1.3-cycle-1",
+        "1.2_1.3-cycle-2",
+        "1.2_1.3-cycle-3",
+        "1.2_1.3-cycle-6",
+        "1.2_1.3-cycle-7",
+        "1.2_1.3-cycle-8"
+      ],
+      "course_keys": [
+        "space_vector_ops",
+        "decomposition",
+        "equal_surface",
+        "coordinate_system",
+        "coordinate_ops"
+      ],
+      "tags": [
+        "空间向量",
+        "坐标数量积",
+        "垂直/模长"
+      ]
+    },
+    "spatial_geometry_angle": {
+      "sections": [
+        "1.1",
+        "1.2+1.3",
+        "1.4"
+      ],
+      "cycle_ids": [
+        "1.1-cycle-1",
+        "1.1-cycle-5",
+        "1.1-cycle-7",
+        "1.2_1.3-cycle-3",
+        "1.2_1.3-cycle-8",
+        "1.4-cycle-1",
+        "1.4-cycle-2",
+        "1.4-cycle-4"
+      ],
+      "course_keys": [
+        "space_vector_ops",
+        "decomposition",
+        "line_line_angle",
+        "coordinate_system",
+        "coordinate_ops",
+        "direction_normal",
+        "parallel_perpendicular",
+        "line_plane_angle",
+        "plane_plane_angle"
+      ],
+      "cycle_prefix": {
+        "1.1": 10,
+        "1.2+1.3": 8,
+        "1.4": 4
+      },
+      "tags": [
+        "立体几何",
+        "空间角",
+        "向量法"
+      ]
+    },
+    "spatial_geometry_distance": {
+      "sections": [
+        "1.1",
+        "1.2+1.3",
+        "1.4"
+      ],
+      "cycle_ids": [
+        "1.1-cycle-1",
+        "1.2_1.3-cycle-1",
+        "1.2_1.3-cycle-2",
+        "1.2_1.3-cycle-3",
+        "1.4-cycle-1",
+        "1.4-cycle-2",
+        "1.4-cycle-5"
+      ],
+      "course_keys": [
+        "space_vector_ops",
+        "decomposition",
+        "equal_surface",
+        "coordinate_system",
+        "coordinate_ops",
+        "direction_normal",
+        "parallel_perpendicular",
+        "plane_equation_upper",
+        "plane_equation_lower",
+        "distance"
+      ],
+      "cycle_prefix": {
+        "1.1": 10,
+        "1.2+1.3": 8,
+        "1.4": 5
+      },
+      "tags": [
+        "立体几何",
+        "距离",
+        "向量法"
+      ]
+    },
+    "spatial_geometry_core": {
+      "sections": [
+        "1.1",
+        "1.2+1.3",
+        "1.4"
+      ],
+      "cycle_ids": [
+        "1.1-cycle-1",
+        "1.1-cycle-2",
+        "1.1-cycle-5",
+        "1.1-cycle-7",
+        "1.1-cycle-8",
+        "1.2_1.3-cycle-1",
+        "1.2_1.3-cycle-2",
+        "1.2_1.3-cycle-3",
+        "1.2_1.3-cycle-8",
+        "1.4-cycle-1",
+        "1.4-cycle-2",
+        "1.4-cycle-3",
+        "1.4-cycle-4",
+        "1.4-cycle-5"
+      ],
+      "course_keys": [
+        "space_vector_ops",
+        "decomposition",
+        "equal_surface",
+        "line_line_angle",
+        "coordinate_system",
+        "coordinate_ops",
+        "direction_normal",
+        "parallel_perpendicular",
+        "line_plane_angle",
+        "plane_plane_angle",
+        "plane_equation_upper",
+        "plane_equation_lower",
+        "distance"
+      ],
+      "tags": [
+        "立体几何",
+        "空间向量",
+        "空间角/距离"
+      ]
+    },
+    "spatial_geometry_comprehensive": {
+      "sections": [
+        "1.1",
+        "1.2+1.3",
+        "1.4",
+        "micro专题1"
+      ],
+      "cycle_ids": [
+        "1.1-cycle-1",
+        "1.1-cycle-2",
+        "1.1-cycle-3",
+        "1.1-cycle-4",
+        "1.1-cycle-5",
+        "1.1-cycle-6",
+        "1.1-cycle-7",
+        "1.1-cycle-8",
+        "1.1-cycle-9",
+        "1.1-cycle-10",
+        "1.2_1.3-cycle-1",
+        "1.2_1.3-cycle-2",
+        "1.2_1.3-cycle-3",
+        "1.2_1.3-cycle-4",
+        "1.2_1.3-cycle-5",
+        "1.2_1.3-cycle-6",
+        "1.2_1.3-cycle-7",
+        "1.2_1.3-cycle-8",
+        "1.2_1.3-cycle-9",
+        "1.2_1.3-cycle-10",
+        "1.4-cycle-1",
+        "1.4-cycle-2",
+        "1.4-cycle-3",
+        "1.4-cycle-4",
+        "1.4-cycle-5",
+        "1.4-cycle-6",
+        "1.4-cycle-7"
+      ],
+      "course_keys": [
+        "space_vector_ops",
+        "decomposition",
+        "equal_surface",
+        "coplanar",
+        "line_line_angle",
+        "coordinate_system",
+        "coordinate_ops",
+        "plane_plane_angle",
+        "parallel_perpendicular",
+        "plane_equation_upper",
+        "plane_equation_lower",
+        "distance",
+        "direction_normal",
+        "line_plane_angle",
+        "moving_point"
+      ],
+      "cycle_prefix": {
+        "1.1": 10,
+        "1.2+1.3": 10,
+        "1.4": 7,
+        "micro专题1": 6
+      },
+      "tags": [
+        "立体几何",
+        "综合题",
+        "空间向量"
+      ]
+    },
+    "spatial_geometry_moving_fold": {
+      "sections": [
+        "1.1",
+        "1.2+1.3",
+        "1.4",
+        "micro专题1"
+      ],
+      "cycle_ids": [
+        "1.1-cycle-1",
+        "1.1-cycle-2",
+        "1.1-cycle-3",
+        "1.1-cycle-4",
+        "1.1-cycle-5",
+        "1.1-cycle-6",
+        "1.1-cycle-7",
+        "1.1-cycle-8",
+        "1.1-cycle-9",
+        "1.1-cycle-10",
+        "1.2_1.3-cycle-1",
+        "1.2_1.3-cycle-2",
+        "1.2_1.3-cycle-3",
+        "1.2_1.3-cycle-4",
+        "1.2_1.3-cycle-5",
+        "1.2_1.3-cycle-6",
+        "1.2_1.3-cycle-7",
+        "1.2_1.3-cycle-8",
+        "1.2_1.3-cycle-9",
+        "1.2_1.3-cycle-10",
+        "1.4-cycle-1",
+        "1.4-cycle-2",
+        "1.4-cycle-3",
+        "1.4-cycle-4",
+        "1.4-cycle-5",
+        "1.4-cycle-6",
+        "1.4-cycle-7",
+        "micro-cycle-1",
+        "micro-cycle-2",
+        "micro-cycle-3",
+        "micro-cycle-4",
+        "micro-cycle-5",
+        "micro-cycle-6"
+      ],
+      "course_keys": [
+        "space_vector_ops",
+        "decomposition",
+        "equal_surface",
+        "coplanar",
+        "line_line_angle",
+        "coordinate_system",
+        "coordinate_ops",
+        "plane_plane_angle",
+        "parallel_perpendicular",
+        "plane_equation_upper",
+        "plane_equation_lower",
+        "distance",
+        "direction_normal",
+        "line_plane_angle",
+        "moving_point"
+      ],
+      "cycle_prefix": {
+        "1.1": 10,
+        "1.2+1.3": 10,
+        "1.4": 7,
+        "micro专题1": 6
+      },
+      "tags": [
+        "立体几何",
+        "动点",
+        "翻折/轨迹"
+      ]
+    },
+    "line_slope": {
+      "sections": [
+        "2.1"
+      ],
+      "cycle_ids": [
+        "2.1-cycle-1",
+        "2.1-cycle-2",
+        "2.1-cycle-3",
+        "2.1-cycle-4",
+        "2.1-cycle-5"
+      ],
+      "course_keys": [
+        "slope_angle_relation"
+      ],
+      "cycle_prefix": {
+        "2.1": 5
+      },
+      "tags": [
+        "直线",
+        "倾斜角",
+        "斜率"
+      ]
+    },
+    "line_equation": {
+      "sections": [
+        "2.1",
+        "2.2"
+      ],
+      "cycle_ids": [
+        "2.1-cycle-1",
+        "2.1-cycle-2",
+        "2.1-cycle-3",
+        "2.1-cycle-4",
+        "2.1-cycle-5",
+        "2.2-cycle-1",
+        "2.2-cycle-2",
+        "2.2-cycle-3",
+        "2.2-cycle-4",
+        "2.2-cycle-5",
+        "2.2-cycle-6",
+        "2.2-cycle-7",
+        "2.2-cycle-8"
+      ],
+      "course_keys": [
+        "slope_angle_relation",
+        "moving_line_region",
+        "line_five_forms",
+        "line_equation_application",
+        "line_parallel_perpendicular"
+      ],
+      "cycle_prefix": {
+        "2.1": 5,
+        "2.2": 8
+      },
+      "tags": [
+        "直线",
+        "方程",
+        "截距/定点"
+      ]
+    },
+    "line_distance_fixed_point": {
+      "sections": [
+        "2.1",
+        "2.2",
+        "2.3"
+      ],
+      "cycle_ids": [
+        "2.1-cycle-1",
+        "2.1-cycle-2",
+        "2.1-cycle-3",
+        "2.1-cycle-4",
+        "2.1-cycle-5",
+        "2.1-cycle-6",
+        "2.1-cycle-7",
+        "2.1-cycle-8",
+        "2.1-cycle-9",
+        "2.2-cycle-1",
+        "2.2-cycle-2",
+        "2.2-cycle-3",
+        "2.2-cycle-4",
+        "2.2-cycle-5",
+        "2.2-cycle-6",
+        "2.2-cycle-7",
+        "2.2-cycle-8",
+        "2.3-cycle-1",
+        "2.3-cycle-2",
+        "2.3-cycle-3",
+        "2.3-cycle-4",
+        "2.3-cycle-5",
+        "2.3-cycle-6",
+        "2.3-cycle-7",
+        "2.3-cycle-8",
+        "2.3-cycle-9"
+      ],
+      "course_keys": [
+        "slope_angle_relation",
+        "moving_line_region",
+        "line_five_forms",
+        "line_equation_application",
+        "line_parallel_perpendicular",
+        "point_line_distance",
+        "line_family_fixed_point"
+      ],
+      "cycle_prefix": {
+        "2.1": 9,
+        "2.2": 8,
+        "2.3": 9
+      },
+      "tags": [
+        "直线",
+        "交点",
+        "距离/定点"
+      ]
+    },
+    "circle_basic": {
+      "sections": [
+        "2.5"
+      ],
+      "cycle_ids": [
+        "2.5-cycle-1",
+        "2.5-cycle-2",
+        "2.5-cycle-3"
+      ],
+      "course_keys": [
+        "circle_standard_general"
+      ],
+      "tags": [
+        "圆",
+        "圆的方程"
+      ]
+    },
+    "circle_line": {
+      "sections": [
+        "2.5",
+        "2.6"
+      ],
+      "cycle_ids": [
+        "2.5-cycle-1",
+        "2.5-cycle-2",
+        "2.5-cycle-3",
+        "2.6-cycle-1",
+        "2.6-cycle-2",
+        "2.6-cycle-3",
+        "2.6-cycle-4",
+        "2.6-cycle-5",
+        "2.6-cycle-6",
+        "2.6-cycle-7"
+      ],
+      "course_keys": [
+        "circle_standard_general",
+        "circle_determination",
+        "line_circle_position",
+        "tangent",
+        "chord_length",
+        "longest_shortest_chord",
+        "line_circle_extreme"
+      ],
+      "cycle_prefix": {
+        "2.5": 6,
+        "2.6": 7
+      },
+      "tags": [
+        "圆",
+        "直线与圆的位置关系"
+      ]
+    },
+    "circle_circle": {
+      "sections": [
+        "2.5",
+        "2.7"
+      ],
+      "cycle_ids": [
+        "2.5-cycle-1",
+        "2.5-cycle-2",
+        "2.5-cycle-3",
+        "2.7-cycle-1",
+        "2.7-cycle-2",
+        "2.7-cycle-3",
+        "2.7-cycle-4",
+        "2.7-cycle-5",
+        "2.7-cycle-6",
+        "2.7-cycle-7",
+        "2.7-cycle-8",
+        "2.7-cycle-9"
+      ],
+      "course_keys": [
+        "circle_standard_general",
+        "circle_determination",
+        "circle_circle_position",
+        "pole_polar_chord",
+        "circle_equiv_algebra",
+        "circle_equiv_geometry"
+      ],
+      "cycle_prefix": {
+        "2.5": 6,
+        "2.7": 9
+      },
+      "tags": [
+        "圆",
+        "圆与圆的位置关系",
+        "公共弦"
+      ]
+    },
+    "ellipse_basic": {
+      "sections": [
+        "ch3.s1"
+      ],
+      "cycle_ids": [
+        "ch3.s1-cycle-1",
+        "ch3.s1-cycle-2",
+        "ch3.s1-cycle-3",
+        "ch3.s1-cycle-4",
+        "ch3.s1-cycle-5"
+      ],
+      "course_keys": [
+        "ellipse_definition",
+        "ellipse_standard_equations"
+      ],
+      "cycle_prefix": {
+        "ch3.s1": 8
+      },
+      "tags": [
+        "椭圆",
+        "定义/标准方程"
+      ]
+    },
+    "ellipse_property": {
+      "sections": [
+        "ch3.s1",
+        "ch3.s2"
+      ],
+      "cycle_ids": [
+        "ch3.s1-cycle-1",
+        "ch3.s1-cycle-2",
+        "ch3.s1-cycle-3",
+        "ch3.s1-cycle-4",
+        "ch3.s1-cycle-5",
+        "ch3.s1-cycle-6",
+        "ch3.s1-cycle-7",
+        "ch3.s1-cycle-8",
+        "ch3.s2-cycle-1",
+        "ch3.s2-cycle-2",
+        "ch3.s2-cycle-3",
+        "ch3.s2-cycle-4",
+        "ch3.s2-cycle-5",
+        "ch3.s2-cycle-6"
+      ],
+      "course_keys": [
+        "ellipse_definition",
+        "ellipse_standard_equations",
+        "ellipse_eccentricity",
+        "intersection_algebra_upper",
+        "intersection_algebra_lower"
+      ],
+      "cycle_prefix": {
+        "ch3.s1": 8,
+        "ch3.s2": 8
+      },
+      "tags": [
+        "椭圆",
+        "几何性质",
+        "离心率"
+      ]
+    },
+    "ellipse_advanced": {
+      "sections": [
+        "ch3.s1",
+        "ch3.s2",
+        "ch3.s3",
+        "ch3.s9",
+        "ch3.s10",
+        "ch3.s11",
+        "ch3.s13"
+      ],
+      "cycle_ids": [
+        "ch3.s1-cycle-1",
+        "ch3.s1-cycle-2",
+        "ch3.s1-cycle-3",
+        "ch3.s1-cycle-4",
+        "ch3.s1-cycle-5",
+        "ch3.s1-cycle-6",
+        "ch3.s1-cycle-7",
+        "ch3.s1-cycle-8",
+        "ch3.s1-cycle-9",
+        "ch3.s1-cycle-10",
+        "ch3.s1-cycle-11",
+        "ch3.s1-cycle-12",
+        "ch3.s1-cycle-13",
+        "ch3.s1-cycle-14",
+        "ch3.s2-cycle-1",
+        "ch3.s2-cycle-2",
+        "ch3.s2-cycle-3",
+        "ch3.s2-cycle-4",
+        "ch3.s2-cycle-5",
+        "ch3.s2-cycle-6",
+        "ch3.s2-cycle-7",
+        "ch3.s2-cycle-8",
+        "ch3.s2-cycle-9",
+        "ch3.s2-cycle-10",
+        "ch3.s2-cycle-11",
+        "ch3.s3-cycle-1",
+        "ch3.s3-cycle-2",
+        "ch3.s3-cycle-3",
+        "ch3.s3-cycle-4",
+        "ch3.s3-cycle-5",
+        "ch3.s3-cycle-6",
+        "ch3.s3-cycle-7",
+        "ch3.s9-cycle-1",
+        "ch3.s9-cycle-2",
+        "ch3.s9-cycle-3",
+        "ch3.s9-cycle-4",
+        "ch3.s10-cycle-1",
+        "ch3.s10-cycle-2",
+        "ch3.s10-cycle-3",
+        "ch3.s10-cycle-4",
+        "ch3.s11-cycle-1",
+        "ch3.s11-cycle-2",
+        "ch3.s11-cycle-3",
+        "ch3.s11-cycle-4",
+        "ch3.s11-cycle-5",
+        "ch3.s13-cycle-1",
+        "ch3.s13-cycle-2",
+        "ch3.s13-cycle-3",
+        "ch3.s13-cycle-4",
+        "ch3.s13-cycle-5"
+      ],
+      "course_keys": [
+        "ellipse_definition",
+        "ellipse_standard_equations",
+        "ellipse_eccentricity",
+        "intersection_algebra_upper",
+        "intersection_algebra_lower",
+        "midpoint_idea",
+        "focus_triangle_perimeter_area",
+        "chord_midpoint_slope_constant",
+        "chord_midpoint_extended",
+        "range_upper",
+        "range_mid",
+        "range_lower",
+        "constant_value_1",
+        "constant_value_2",
+        "fixed_point_1",
+        "fixed_point_2_upper",
+        "fixed_point_2_lower",
+        "moving_point_basic"
+      ],
+      "cycle_prefix": {
+        "ch3.s1": 14,
+        "ch3.s2": 11,
+        "ch3.s3": 7,
+        "ch3.s9": 4,
+        "ch3.s10": 4,
+        "ch3.s11": 5,
+        "ch3.s13": 5
+      },
+      "tags": [
+        "椭圆",
+        "直线与椭圆",
+        "定点/定值/最值"
+      ]
+    },
+    "hyperbola_basic": {
+      "sections": [
+        "ch3.s4"
+      ],
+      "cycle_ids": [
+        "ch3.s4-cycle-1",
+        "ch3.s4-cycle-2",
+        "ch3.s4-cycle-3",
+        "ch3.s4-cycle-4"
+      ],
+      "course_keys": [
+        "hyperbola_definition_equation"
+      ],
+      "cycle_prefix": {
+        "ch3.s4": 7
+      },
+      "tags": [
+        "双曲线",
+        "定义/标准方程"
+      ]
+    },
+    "hyperbola_property": {
+      "sections": [
+        "ch3.s4",
+        "ch3.s5"
+      ],
+      "cycle_ids": [
+        "ch3.s4-cycle-1",
+        "ch3.s4-cycle-2",
+        "ch3.s4-cycle-3",
+        "ch3.s4-cycle-4",
+        "ch3.s4-cycle-5",
+        "ch3.s4-cycle-6",
+        "ch3.s4-cycle-7",
+        "ch3.s5-cycle-1",
+        "ch3.s5-cycle-2",
+        "ch3.s5-cycle-3",
+        "ch3.s5-cycle-4",
+        "ch3.s5-cycle-5",
+        "ch3.s5-cycle-6",
+        "ch3.s5-cycle-7",
+        "ch3.s5-cycle-8",
+        "ch3.s5-cycle-9"
+      ],
+      "course_keys": [
+        "hyperbola_definition_equation",
+        "hyperbola_eccentricity_asymptote",
+        "intersection_algebra_upper",
+        "intersection_algebra_lower"
+      ],
+      "cycle_prefix": {
+        "ch3.s4": 7,
+        "ch3.s5": 9
+      },
+      "tags": [
+        "双曲线",
+        "渐近线",
+        "离心率"
+      ]
+    },
+    "hyperbola_advanced": {
+      "sections": [
+        "ch3.s4",
+        "ch3.s5",
+        "ch3.s6",
+        "ch3.s10",
+        "ch3.s11",
+        "ch3.s13"
+      ],
+      "cycle_ids": [
+        "ch3.s4-cycle-1",
+        "ch3.s4-cycle-2",
+        "ch3.s4-cycle-3",
+        "ch3.s4-cycle-4",
+        "ch3.s4-cycle-5",
+        "ch3.s4-cycle-6",
+        "ch3.s4-cycle-7",
+        "ch3.s4-cycle-8",
+        "ch3.s4-cycle-9",
+        "ch3.s4-cycle-10",
+        "ch3.s5-cycle-1",
+        "ch3.s5-cycle-2",
+        "ch3.s5-cycle-3",
+        "ch3.s5-cycle-4",
+        "ch3.s5-cycle-5",
+        "ch3.s5-cycle-6",
+        "ch3.s5-cycle-7",
+        "ch3.s5-cycle-8",
+        "ch3.s5-cycle-9",
+        "ch3.s5-cycle-10",
+        "ch3.s5-cycle-11",
+        "ch3.s5-cycle-12",
+        "ch3.s6-cycle-1",
+        "ch3.s6-cycle-2",
+        "ch3.s6-cycle-3",
+        "ch3.s6-cycle-4",
+        "ch3.s6-cycle-5",
+        "ch3.s6-cycle-6",
+        "ch3.s6-cycle-7",
+        "ch3.s6-cycle-8",
+        "ch3.s10-cycle-1",
+        "ch3.s10-cycle-2",
+        "ch3.s10-cycle-3",
+        "ch3.s10-cycle-4",
+        "ch3.s11-cycle-1",
+        "ch3.s11-cycle-2",
+        "ch3.s11-cycle-3",
+        "ch3.s11-cycle-4",
+        "ch3.s11-cycle-5",
+        "ch3.s13-cycle-1",
+        "ch3.s13-cycle-2",
+        "ch3.s13-cycle-3",
+        "ch3.s13-cycle-4",
+        "ch3.s13-cycle-5"
+      ],
+      "course_keys": [
+        "hyperbola_definition_equation",
+        "hyperbola_eccentricity_asymptote",
+        "intersection_algebra_upper",
+        "intersection_algebra_lower",
+        "focus_triangle_perimeter_area",
+        "chord_midpoint_slope_constant",
+        "chord_midpoint_extended",
+        "constant_value_1",
+        "constant_value_2",
+        "fixed_point_1",
+        "fixed_point_2_upper",
+        "fixed_point_2_lower",
+        "moving_point_basic",
+        "chord_length_formula",
+        "in_curve_triangle_area",
+        "in_curve_quad_area",
+        "evaluation_algebra",
+        "evaluation_geometry"
+      ],
+      "cycle_prefix": {
+        "ch3.s4": 10,
+        "ch3.s5": 12,
+        "ch3.s6": 8,
+        "ch3.s10": 4,
+        "ch3.s11": 5,
+        "ch3.s13": 5
+      },
+      "tags": [
+        "双曲线",
+        "综合题",
+        "定点/定值"
+      ]
+    },
+    "parabola_basic": {
+      "sections": [
+        "ch3.s7"
+      ],
+      "cycle_ids": [
+        "ch3.s7-cycle-1",
+        "ch3.s7-cycle-2",
+        "ch3.s7-cycle-3"
+      ],
+      "course_keys": [
+        "parabola_definition_equation",
+        "focal_radius_formula",
+        "focal_chord_area"
+      ],
+      "cycle_prefix": {
+        "ch3.s7": 3
+      },
+      "tags": [
+        "抛物线",
+        "定义/焦点/准线"
+      ]
+    },
+    "parabola_property": {
+      "sections": [
+        "ch3.s7",
+        "ch3.s8"
+      ],
+      "cycle_ids": [
+        "ch3.s7-cycle-1",
+        "ch3.s7-cycle-2",
+        "ch3.s7-cycle-3",
+        "ch3.s7-cycle-4",
+        "ch3.s7-cycle-5",
+        "ch3.s7-cycle-6",
+        "ch3.s7-cycle-7",
+        "ch3.s8-cycle-1",
+        "ch3.s8-cycle-2",
+        "ch3.s8-cycle-3",
+        "ch3.s8-cycle-4",
+        "ch3.s8-cycle-5",
+        "ch3.s8-cycle-6"
+      ],
+      "course_keys": [
+        "parabola_definition_equation",
+        "focal_radius_formula",
+        "focal_chord_area",
+        "parabola_properties",
+        "intersection_algebra_upper",
+        "intersection_algebra_lower"
+      ],
+      "cycle_prefix": {
+        "ch3.s7": 7,
+        "ch3.s8": 6
+      },
+      "tags": [
+        "抛物线",
+        "几何性质"
+      ]
+    },
+    "parabola_advanced": {
+      "sections": [
+        "ch3.s7",
+        "ch3.s8",
+        "ch3.s9",
+        "ch3.s10",
+        "ch3.s11",
+        "ch3.s13"
+      ],
+      "cycle_ids": [
+        "ch3.s7-cycle-1",
+        "ch3.s7-cycle-2",
+        "ch3.s7-cycle-3",
+        "ch3.s7-cycle-4",
+        "ch3.s7-cycle-5",
+        "ch3.s7-cycle-6",
+        "ch3.s7-cycle-7",
+        "ch3.s7-cycle-8",
+        "ch3.s7-cycle-9",
+        "ch3.s7-cycle-10",
+        "ch3.s7-cycle-11",
+        "ch3.s7-cycle-12",
+        "ch3.s8-cycle-1",
+        "ch3.s8-cycle-2",
+        "ch3.s8-cycle-3",
+        "ch3.s8-cycle-4",
+        "ch3.s8-cycle-5",
+        "ch3.s8-cycle-6",
+        "ch3.s8-cycle-7",
+        "ch3.s8-cycle-8",
+        "ch3.s8-cycle-9",
+        "ch3.s9-cycle-1",
+        "ch3.s9-cycle-2",
+        "ch3.s9-cycle-3",
+        "ch3.s9-cycle-4",
+        "ch3.s10-cycle-1",
+        "ch3.s10-cycle-2",
+        "ch3.s10-cycle-3",
+        "ch3.s10-cycle-4",
+        "ch3.s11-cycle-1",
+        "ch3.s11-cycle-2",
+        "ch3.s11-cycle-3",
+        "ch3.s11-cycle-4",
+        "ch3.s11-cycle-5",
+        "ch3.s13-cycle-1",
+        "ch3.s13-cycle-2",
+        "ch3.s13-cycle-3",
+        "ch3.s13-cycle-4",
+        "ch3.s13-cycle-5"
+      ],
+      "course_keys": [
+        "parabola_definition_equation",
+        "focal_radius_formula",
+        "focal_chord_area",
+        "parabola_properties",
+        "intersection_algebra_upper",
+        "intersection_algebra_lower",
+        "chord_midpoint_extended",
+        "polar_focal_chord_upper",
+        "polar_focal_chord_lower",
+        "chord_length_formula",
+        "in_curve_triangle_area",
+        "in_curve_quad_area",
+        "evaluation_algebra",
+        "evaluation_geometry",
+        "constant_value_1",
+        "constant_value_2",
+        "fixed_point_1",
+        "fixed_point_2_upper",
+        "fixed_point_2_lower",
+        "moving_point_basic"
+      ],
+      "cycle_prefix": {
+        "ch3.s7": 12,
+        "ch3.s8": 9,
+        "ch3.s9": 4,
+        "ch3.s10": 4,
+        "ch3.s11": 5,
+        "ch3.s13": 5
+      },
+      "tags": [
+        "抛物线",
+        "综合题",
+        "动点/定值"
+      ]
+    },
+    "sequence_term": {
+      "sections": [
+        "4.1",
+        "4.2"
+      ],
+      "cycle_ids": [
+        "4.1-cycle-1",
+        "4.2-cycle-1",
+        "4.2-cycle-2",
+        "4.2-cycle-3",
+        "4.2-cycle-4",
+        "4.2-cycle-7"
+      ],
+      "course_keys": [
+        "4.3.1.1.a 数列的概念和通项公式",
+        "4.3.2.1 等差数列的基本公式",
+        "4.3.2.2 等差数列的判定",
+        "4.3.2.3 等差数列角标和性质"
+      ],
+      "tags": [
+        "等差数列",
+        "通项/中项/下标和"
+      ]
+    },
+    "sequence_sum": {
+      "sections": [
+        "4.1",
+        "4.2",
+        "4.3"
+      ],
+      "cycle_ids": [
+        "4.1-cycle-1",
+        "4.1-cycle-3",
+        "4.1-cycle-4",
+        "4.2-cycle-1",
+        "4.2-cycle-2",
+        "4.2-cycle-3",
+        "4.2-cycle-4",
+        "4.2-cycle-6",
+        "4.2-cycle-7",
+        "4.2-cycle-8",
+        "4.3-cycle-1",
+        "4.3-cycle-2",
+        "4.3-cycle-3",
+        "4.3-cycle-4",
+        "4.3-cycle-5",
+        "4.3-cycle-6"
+      ],
+      "course_keys": [
+        "4.3.2.1 等差数列的基本公式",
+        "4.3.2.2 等差数列的判定",
+        "4.3.2.3 等差数列角标和性质",
+        "4.3.2.4 等差数列Sn的性质"
+      ],
+      "tags": [
+        "等差数列",
+        "通项/前n项和/最值"
+      ]
+    },
+    "sequence_geometric": {
+      "sections": [
+        "4.4",
+        "4.5"
+      ],
+      "cycle_ids": [
+        "4.4-cycle-1",
+        "4.4-cycle-2",
+        "4.4-cycle-3",
+        "4.4-cycle-4",
+        "4.4-cycle-5",
+        "4.4-cycle-7",
+        "4.5-cycle-1",
+        "4.5-cycle-2",
+        "4.5-cycle-3",
+        "4.5-cycle-4",
+        "4.5-cycle-5"
+      ],
+      "course_keys": [
+        "4.3.3.1 等比数列的基本公式",
+        "4.3.3.2 等比数列的判定",
+        "4.3.3.3 等比数列角标和性质",
+        "4.3.3.4 等比数列Sn性质"
+      ],
+      "tags": [
+        "等比数列",
+        "通项/求和"
+      ]
+    },
+    "sequence_mixed": {
+      "sections": [
+        "4.1",
+        "4.2",
+        "4.3",
+        "4.4",
+        "4.5",
+        "4.7",
+        "4.8"
+      ],
+      "cycle_ids": [
+        "4.1-cycle-1",
+        "4.1-cycle-3",
+        "4.1-cycle-4",
+        "4.2-cycle-1",
+        "4.2-cycle-2",
+        "4.2-cycle-3",
+        "4.2-cycle-4",
+        "4.2-cycle-6",
+        "4.2-cycle-7",
+        "4.2-cycle-8",
+        "4.3-cycle-1",
+        "4.3-cycle-2",
+        "4.3-cycle-3",
+        "4.3-cycle-4",
+        "4.3-cycle-5",
+        "4.3-cycle-6",
+        "4.4-cycle-1",
+        "4.4-cycle-2",
+        "4.4-cycle-3",
+        "4.4-cycle-4",
+        "4.4-cycle-5",
+        "4.4-cycle-7",
+        "4.5-cycle-1",
+        "4.5-cycle-2",
+        "4.5-cycle-3",
+        "4.5-cycle-4",
+        "4.5-cycle-5",
+        "4.7-cycle-3",
+        "4.8-cycle-1",
+        "4.8-cycle-2"
+      ],
+      "course_keys": [
+        "4.3.2.1 等差数列的基本公式",
+        "4.3.2.2 等差数列的判定",
+        "4.3.2.3 等差数列角标和性质",
+        "4.3.2.4 等差数列Sn的性质",
+        "4.3.3.1 等比数列的基本公式",
+        "4.3.3.2 等比数列的判定",
+        "4.3.3.3 等比数列角标和性质",
+        "4.3.3.4 等比数列Sn性质",
+        "4.4.4.1 分组求和法",
+        "4.4.2.1 利用Sn与an的关系转化为an的递推数列"
+      ],
+      "tags": [
+        "数列",
+        "递推/等差等比/奇偶分组求和"
+      ]
+    },
+    "sequence_harmonic": {
+      "sections": [
+        "4.1",
+        "4.2",
+        "4.3",
+        "4.7"
+      ],
+      "cycle_ids": [
+        "4.1-cycle-1",
+        "4.1-cycle-3",
+        "4.2-cycle-1",
+        "4.2-cycle-2",
+        "4.2-cycle-3",
+        "4.2-cycle-4",
+        "4.2-cycle-8",
+        "4.3-cycle-1",
+        "4.3-cycle-9",
+        "4.7-cycle-4"
+      ],
+      "course_keys": [
+        "4.3.2.1 等差数列的基本公式",
+        "4.3.2.2 等差数列的判定",
+        "4.4.4.2 倒序相加法"
+      ],
+      "tags": [
+        "调和数列",
+        "倒数构成等差数列",
+        "首末项乘积最值"
+      ],
+      "external_prerequisites": [
+        "正数基本不等式"
+      ]
+    },
+    "out_of_scope": {
+      "sections": [],
+      "cycle_prefix": {},
+      "tags": [
+        "当前教材范围外"
+      ]
+    },
+    "planar_vector_dot_transfer": {
+      "sections": [
+        "1.1",
+        "1.2+1.3"
+      ],
+      "cycle_ids": [
+        "1.1-cycle-1",
+        "1.1-cycle-5",
+        "1.2_1.3-cycle-6",
+        "1.2_1.3-cycle-7",
+        "1.2_1.3-cycle-8"
+      ],
+      "course_keys": [
+        "space_vector_ops",
+        "coordinate_ops"
+      ],
+      "tags": [
+        "平面向量",
+        "数量积/垂直",
+        "空间向量方法降维迁移"
+      ]
+    },
+    "vector_projection_basis_relations": {
+      "sections": [
+        "1.1",
+        "1.2+1.3",
+        "1.4"
+      ],
+      "cycle_ids": [
+        "1.1-cycle-1",
+        "1.1-cycle-2",
+        "1.1-cycle-4",
+        "1.1-cycle-5",
+        "1.2_1.3-cycle-1",
+        "1.2_1.3-cycle-2",
+        "1.2_1.3-cycle-3",
+        "1.2_1.3-cycle-6",
+        "1.2_1.3-cycle-7",
+        "1.2_1.3-cycle-8",
+        "1.4-cycle-1",
+        "1.4-cycle-2"
+      ],
+      "course_keys": [
+        "space_vector_ops",
+        "decomposition",
+        "coplanar",
+        "coordinate_ops",
+        "direction_normal",
+        "parallel_perpendicular"
+      ],
+      "tags": [
+        "投影向量",
+        "共面/基底",
+        "方向向量与法向量"
+      ]
+    },
+    "sequence_arithmetic_exponential_sum": {
+      "sections": [
+        "4.1",
+        "4.2",
+        "4.3",
+        "4.4",
+        "4.5",
+        "4.7"
+      ],
+      "cycle_ids": [
+        "4.1-cycle-1",
+        "4.1-cycle-3",
+        "4.1-cycle-4",
+        "4.2-cycle-1",
+        "4.2-cycle-2",
+        "4.2-cycle-3",
+        "4.2-cycle-4",
+        "4.2-cycle-6",
+        "4.2-cycle-7",
+        "4.2-cycle-8",
+        "4.3-cycle-1",
+        "4.3-cycle-2",
+        "4.3-cycle-3",
+        "4.3-cycle-4",
+        "4.3-cycle-5",
+        "4.3-cycle-6",
+        "4.4-cycle-1",
+        "4.4-cycle-2",
+        "4.4-cycle-3",
+        "4.4-cycle-4",
+        "4.4-cycle-5",
+        "4.4-cycle-7",
+        "4.5-cycle-1",
+        "4.5-cycle-2",
+        "4.5-cycle-3",
+        "4.5-cycle-4",
+        "4.5-cycle-5",
+        "4.7-cycle-3"
+      ],
+      "course_keys": [
+        "4.4.4.1 分组求和法"
+      ],
+      "tags": [
+        "等差与等比条件",
+        "指数新数列",
+        "分组求和"
+      ]
+    }
+  },
+  "sources": {
+    "exam-6f9d44087bb37f8b": {
+      "page_review_report": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+      "file_name": "湖南省临湘市第二中学2024-2025学年高二上学期期中考试数学试卷（11.24）.pdf",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_pdf_pages": [
+        1,
+        3
+      ],
+      "answer_pdf_pages": [
+        4,
+        8
+      ],
+      "question_count": 14,
+      "answer_completeness": "complete",
+      "visual_verification": {
+        "status": "verified",
+        "pages": [
+          1,
+          2,
+          3
+        ],
+        "reviewer": "codex-vision",
+        "reviewed_at": "2026-09-01T00:10:00+08:00",
+        "method": "source_page_image_inspection_v1"
+      },
+      "question_pages": {
+        "1": [
+          1
+        ],
+        "2": [
+          1
+        ],
+        "3": [
+          1
+        ],
+        "4": [
+          1
+        ],
+        "5": [
+          1
+        ],
+        "6": [
+          1
+        ],
+        "7": [
+          1,
+          2
+        ],
+        "8": [
+          2
+        ],
+        "9": [
+          2
+        ],
+        "10": [
+          2
+        ],
+        "11": [
+          2
+        ],
+        "12": [
+          2
+        ],
+        "13": [
+          2
+        ],
+        "14": [
+          3
+        ]
+      },
+      "questions": {
+        "1": {
+          "summary": "等差数列前n项和与中项性质",
+          "profiles": [
+            "sequence_sum"
+          ]
+        },
+        "2": {
+          "summary": "直线倾斜角与斜率",
+          "profiles": [
+            "line_slope"
+          ]
+        },
+        "3": {
+          "summary": "斜二测直观图与原平面面积",
+          "profiles": [
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "斜二测法与平面图形面积"
+          ]
+        },
+        "4": {
+          "summary": "复数除法与虚部",
+          "profiles": [
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "复数的代数运算"
+          ]
+        },
+        "5": {
+          "summary": "椭圆与双曲线共焦点、离心率",
+          "profiles": [
+            "ellipse_property",
+            "hyperbola_property"
+          ]
+        },
+        "6": {
+          "summary": "抛物线焦点、准线与对称性",
+          "profiles": [
+            "parabola_property"
+          ]
+        },
+        "7": {
+          "summary": "正方体中点到平面的距离",
+          "profiles": [
+            "spatial_geometry_distance"
+          ]
+        },
+        "8": {
+          "summary": "含参数二次方程表示椭圆的条件（分母正且不等）",
+          "profiles": [
+            "ellipse_basic"
+          ]
+        },
+        "9": {
+          "summary": "三条直线分平面为六部分的参数判定",
+          "profiles": [
+            "line_equation"
+          ],
+          "external_prerequisites": [
+            "三条直线分平面区域计数"
+          ],
+          "force_review": true
+        },
+        "10": {
+          "summary": "相邻两项组成的点在直线上：转等差递推求前n项和",
+          "profiles": [
+            "sequence_sum"
+          ]
+        },
+        "11": {
+          "summary": "椭圆焦点三角形为等腰三角形与中点条件求离心率",
+          "profiles": [
+            "ellipse_property"
+          ]
+        },
+        "12": {
+          "summary": "正方形沿AM翻折后四棱锥的体积",
+          "profiles": [
+            "spatial_geometry_distance"
+          ],
+          "external_prerequisites": [
+            "空间翻折保持长度与棱锥体积公式"
+          ],
+          "force_review": true
+        },
+        "13": {
+          "summary": "三角函数诱导公式化简与两角和差求值",
+          "profiles": [
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "三角函数诱导公式与两角和差"
+          ]
+        },
+        "14": {
+          "summary": "射击得分的平均数、中位数、方差与随机选取概率",
+          "profiles": [
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "平均数、中位数、方差与古典概型"
+          ]
+        }
+      }
+    },
+    "exam-280027cc9e6ccb5b": {
+      "page_review_report": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+      "file_name": "2025湖南长沙市高二数学上学期期中试题.pdf",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_pdf_pages": [
+        1,
+        5
+      ],
+      "answer_pdf_pages": [
+        6,
+        8
+      ],
+      "question_count": 19,
+      "answer_completeness": "partial_source_file",
+      "visual_verification": {
+        "status": "verified",
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "reviewer": "codex-vision",
+        "reviewed_at": "2026-09-01T00:10:00+08:00",
+        "method": "source_page_image_inspection_v1"
+      },
+      "question_pages": {
+        "1": [
+          1
+        ],
+        "2": [
+          1
+        ],
+        "3": [
+          1
+        ],
+        "4": [
+          1
+        ],
+        "5": [
+          1
+        ],
+        "6": [
+          1,
+          2
+        ],
+        "7": [
+          2
+        ],
+        "8": [
+          2
+        ],
+        "9": [
+          2
+        ],
+        "10": [
+          2,
+          3
+        ],
+        "11": [
+          3
+        ],
+        "12": [
+          3
+        ],
+        "13": [
+          3
+        ],
+        "14": [
+          3
+        ],
+        "15": [
+          3
+        ],
+        "16": [
+          4
+        ],
+        "17": [
+          4
+        ],
+        "18": [
+          4
+        ],
+        "19": [
+          4,
+          5
+        ]
+      },
+      "questions": {
+        "1": {
+          "summary": "等差数列中项",
+          "profiles": [
+            "sequence_term"
+          ]
+        },
+        "2": {
+          "summary": "圆的方程与半径",
+          "profiles": [
+            "circle_basic"
+          ]
+        },
+        "3": {
+          "summary": "抛物线与椭圆共焦点、准线",
+          "profiles": [
+            "parabola_basic",
+            "ellipse_basic"
+          ]
+        },
+        "4": {
+          "summary": "空气质量折线图的统计判断",
+          "profiles": [
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "统计图表与方差/中位数"
+          ]
+        },
+        "5": {
+          "summary": "双曲线焦距与渐近线上点求标准方程",
+          "profiles": [
+            "hyperbola_property"
+          ]
+        },
+        "6": {
+          "summary": "三角函数表达式的周期、奇偶与单调性",
+          "profiles": [
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "三角函数图像与性质"
+          ]
+        },
+        "7": {
+          "summary": "已知两边及夹角，求三角形中线长（向量和的模）",
+          "profiles": [
+            "spatial_vector_dot_length"
+          ]
+        },
+        "8": {
+          "summary": "椭圆焦点弦比与离心率",
+          "profiles": [
+            "ellipse_property"
+          ]
+        },
+        "9": {
+          "summary": "复数命题判断",
+          "profiles": [
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "复数的模与共轭"
+          ]
+        },
+        "10": {
+          "summary": "正方体中体积、线面垂直与二面角",
+          "profiles": [
+            "spatial_geometry_core"
+          ]
+        },
+        "11": {
+          "summary": "四叶玫瑰线直角坐标方程的象限、面积界、模长与整点",
+          "profiles": [
+            "circle_basic"
+          ],
+          "external_prerequisites": [
+            "基本不等式与曲线区域比较、整点枚举"
+          ],
+          "force_review": true
+        },
+        "12": {
+          "summary": "两圆公共弦所在直线（根轴）",
+          "profiles": [
+            "circle_circle"
+          ]
+        },
+        "13": {
+          "summary": "调和数列与乘积最值",
+          "profiles": [
+            "sequence_harmonic"
+          ],
+          "external_prerequisites": [
+            "正数基本不等式"
+          ],
+          "force_review": true
+        },
+        "14": {
+          "summary": "四棱锥外接球与动点最小值",
+          "profiles": [
+            "spatial_geometry_moving_fold"
+          ]
+        },
+        "15": {
+          "summary": "等差数列通项与前n项和最小值",
+          "profiles": [
+            "sequence_sum"
+          ]
+        },
+        "16": {
+          "summary": "等差与等比条件求通项，再对a_n+3^{a_n}分组求和",
+          "profiles": [
+            "sequence_arithmetic_exponential_sum"
+          ]
+        },
+        "17": {
+          "summary": "四棱锥中的线面平行与二面角",
+          "profiles": [
+            "spatial_geometry_core"
+          ]
+        },
+        "18": {
+          "summary": "抛物线方程、弦面积与定值点",
+          "profiles": [
+            "parabola_advanced"
+          ]
+        },
+        "19": {
+          "summary": "平面折纸的垂直平分线生成双曲线，结合圆切线求四边形面积范围",
+          "profiles": [
+            "hyperbola_advanced",
+            "circle_line"
+          ]
+        }
+      }
+    },
+    "exam-9dcdf2f2023b5eba": {
+      "page_review_report": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+      "file_name": "2025-2026学年湖南省岳阳楼区高二（上）期末数学试卷.pdf",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_pdf_pages": [
+        1,
+        4
+      ],
+      "answer_pdf_pages": [
+        5,
+        13
+      ],
+      "question_count": 19,
+      "answer_completeness": "complete",
+      "visual_verification": {
+        "status": "verified",
+        "pages": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewer": "codex-vision",
+        "reviewed_at": "2026-09-01T00:10:00+08:00",
+        "method": "source_page_image_inspection_v1"
+      },
+      "question_pages": {
+        "1": [
+          1
+        ],
+        "2": [
+          1
+        ],
+        "3": [
+          1
+        ],
+        "4": [
+          1
+        ],
+        "5": [
+          1
+        ],
+        "6": [
+          1
+        ],
+        "7": [
+          1
+        ],
+        "8": [
+          1,
+          2
+        ],
+        "9": [
+          2
+        ],
+        "10": [
+          2
+        ],
+        "11": [
+          2
+        ],
+        "12": [
+          2
+        ],
+        "13": [
+          2
+        ],
+        "14": [
+          2
+        ],
+        "15": [
+          3
+        ],
+        "16": [
+          3
+        ],
+        "17": [
+          3
+        ],
+        "18": [
+          4
+        ],
+        "19": [
+          4
+        ]
+      },
+      "questions": {
+        "1": {
+          "summary": "集合交集",
+          "profiles": [
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "集合与区间"
+          ]
+        },
+        "2": {
+          "summary": "复数在复平面中的位置",
+          "profiles": [
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "复数与复平面"
+          ]
+        },
+        "3": {
+          "summary": "等差数列中项",
+          "profiles": [
+            "sequence_term"
+          ]
+        },
+        "4": {
+          "summary": "抛物线焦点到准线距离",
+          "profiles": [
+            "parabola_basic"
+          ]
+        },
+        "5": {
+          "summary": "两圆位置关系",
+          "profiles": [
+            "circle_circle"
+          ]
+        },
+        "6": {
+          "summary": "四面体中点与三等分点的向量线性表示（非坐标）",
+          "profiles": [
+            "spatial_vector_basis"
+          ]
+        },
+        "7": {
+          "summary": "理想速度方程的对数计算",
+          "profiles": [
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "对数函数与应用"
+          ]
+        },
+        "8": {
+          "summary": "双曲线渐近线、垂足与离心率",
+          "profiles": [
+            "hyperbola_property"
+          ]
+        },
+        "9": {
+          "summary": "混合命题：直线距离、百分位数、垂直与概率",
+          "profiles": [
+            "line_distance_fixed_point",
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "统计百分位数",
+            "概率事件"
+          ],
+          "force_review": true
+        },
+        "10": {
+          "summary": "圆与参数直线的定点、相切、相交和直角三角形",
+          "profiles": [
+            "line_distance_fixed_point",
+            "circle_line"
+          ]
+        },
+        "11": {
+          "summary": "正方体截面、线面垂直与动点轨迹",
+          "profiles": [
+            "spatial_geometry_moving_fold"
+          ]
+        },
+        "12": {
+          "summary": "二维向量(2,m)与(1,1)垂直的数量积判定",
+          "profiles": [
+            "planar_vector_dot_transfer"
+          ]
+        },
+        "13": {
+          "summary": "正四棱台顶点共球面，由截面半径和高求体积",
+          "profiles": [
+            "spatial_geometry_distance"
+          ],
+          "external_prerequisites": [
+            "球截面半径关系、正棱台体积公式"
+          ],
+          "force_review": true
+        },
+        "14": {
+          "summary": "直三棱柱中动点到直线距离最小值",
+          "profiles": [
+            "spatial_geometry_distance",
+            "spatial_geometry_moving_fold"
+          ]
+        },
+        "15": {
+          "summary": "三角形正弦定理",
+          "profiles": [
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "正弦定理与三角形面积"
+          ]
+        },
+        "16": {
+          "summary": "四棱锥线面平行与二面角",
+          "profiles": [
+            "spatial_geometry_angle"
+          ]
+        },
+        "17": {
+          "summary": "递推数列、等差数列与分组求和",
+          "profiles": [
+            "sequence_mixed"
+          ]
+        },
+        "18": {
+          "summary": "乒乓球比赛的条件概率",
+          "profiles": [
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "独立事件与条件概率"
+          ]
+        },
+        "19": {
+          "summary": "椭圆方程、三角形面积最值与定点",
+          "profiles": [
+            "ellipse_advanced"
+          ]
+        }
+      }
+    },
+    "exam-e36f8b1c7340bdb7": {
+      "page_review_report": "reports/all_chapters/exam-semantic-page-review-20260907.json",
+      "file_name": "2024-2025学年湖南省岳阳市临湘市高二（上）期中数学试卷.pdf",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_pdf_pages": [
+        1,
+        5
+      ],
+      "answer_pdf_pages": [
+        6,
+        15
+      ],
+      "question_count": 22,
+      "answer_completeness": "complete",
+      "visual_verification": {
+        "status": "verified",
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "reviewer": "codex-vision",
+        "reviewed_at": "2026-09-01T00:10:00+08:00",
+        "method": "source_page_image_inspection_v1"
+      },
+      "question_pages": {
+        "1": [
+          1
+        ],
+        "2": [
+          1
+        ],
+        "3": [
+          1
+        ],
+        "4": [
+          1
+        ],
+        "5": [
+          1
+        ],
+        "6": [
+          1
+        ],
+        "7": [
+          1
+        ],
+        "8": [
+          1,
+          2
+        ],
+        "9": [
+          2
+        ],
+        "10": [
+          2
+        ],
+        "11": [
+          2
+        ],
+        "12": [
+          2,
+          3
+        ],
+        "13": [
+          3
+        ],
+        "14": [
+          3
+        ],
+        "15": [
+          3
+        ],
+        "16": [
+          3
+        ],
+        "17": [
+          3
+        ],
+        "18": [
+          4
+        ],
+        "19": [
+          4
+        ],
+        "20": [
+          4
+        ],
+        "21": [
+          5
+        ],
+        "22": [
+          5
+        ]
+      },
+      "questions": {
+        "1": {
+          "summary": "空间向量坐标平行判定",
+          "profiles": [
+            "spatial_vector_coordinate_parallel"
+          ]
+        },
+        "2": {
+          "summary": "直线倾斜角",
+          "profiles": [
+            "line_slope"
+          ]
+        },
+        "3": {
+          "summary": "平行六面体中空间向量数量积求长度",
+          "profiles": [
+            "spatial_vector_dot_length"
+          ]
+        },
+        "4": {
+          "summary": "空间向量垂直与模长",
+          "profiles": [
+            "spatial_vector_coordinate_dot"
+          ]
+        },
+        "5": {
+          "summary": "平行六面体中点的向量表示",
+          "profiles": [
+            "spatial_vector_basis"
+          ]
+        },
+        "6": {
+          "summary": "直线截距式方程",
+          "profiles": [
+            "line_equation"
+          ]
+        },
+        "7": {
+          "summary": "正方体中平面距离、外接球和线面关系判断",
+          "profiles": [
+            "spatial_geometry_distance",
+            "spatial_geometry_angle"
+          ]
+        },
+        "8": {
+          "summary": "两条参数直线交点轨迹与距离和最值",
+          "profiles": [
+            "line_distance_fixed_point",
+            "circle_basic"
+          ]
+        },
+        "9": {
+          "summary": "四棱柱中点与靠近端点的五等分点的向量线性表示",
+          "profiles": [
+            "spatial_vector_basis"
+          ]
+        },
+        "10": {
+          "summary": "投影向量、四点共面、空间基底与方向/法向量判断",
+          "profiles": [
+            "vector_projection_basis_relations"
+          ]
+        },
+        "11": {
+          "summary": "正四棱锥与正方体组合体的线面关系和距离",
+          "profiles": [
+            "spatial_geometry_comprehensive"
+          ]
+        },
+        "12": {
+          "summary": "正方体中线面垂直、平行、线面角和外接球",
+          "profiles": [
+            "spatial_geometry_comprehensive"
+          ]
+        },
+        "13": {
+          "summary": "正方体中异面直线所成角",
+          "profiles": [
+            "spatial_geometry_angle"
+          ]
+        },
+        "14": {
+          "summary": "直线关于水平线对称后与圆的位置关系",
+          "profiles": [
+            "line_equation",
+            "circle_line"
+          ]
+        },
+        "15": {
+          "summary": "线段上动点与定点连线的斜率范围",
+          "profiles": [
+            "line_slope",
+            "line_distance_fixed_point"
+          ]
+        },
+        "16": {
+          "summary": "正三棱柱动点与异面直线夹角",
+          "profiles": [
+            "spatial_geometry_angle",
+            "spatial_geometry_moving_fold"
+          ]
+        },
+        "17": {
+          "summary": "三棱锥垂直关系与二面角",
+          "profiles": [
+            "spatial_geometry_comprehensive"
+          ]
+        },
+        "18": {
+          "summary": "三角形正弦余弦与周长",
+          "profiles": [
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "正弦定理、余弦定理与面积公式"
+          ]
+        },
+        "19": {
+          "summary": "四面体面面垂直、面积最小与线面角",
+          "profiles": [
+            "spatial_geometry_core"
+          ]
+        },
+        "20": {
+          "summary": "三角形高线、中线与直线方程",
+          "profiles": [
+            "line_equation",
+            "line_distance_fixed_point"
+          ]
+        },
+        "21": {
+          "summary": "四棱锥线面平行、二面角与动点比例",
+          "profiles": [
+            "spatial_geometry_comprehensive",
+            "spatial_geometry_moving_fold"
+          ]
+        },
+        "22": {
+          "summary": "信号传输与重复试验概率",
+          "profiles": [
+            "out_of_scope"
+          ],
+          "external_prerequisites": [
+            "独立重复试验与概率"
+          ]
+        }
+      }
+    }
+  }
+}

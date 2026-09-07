@@ -13,6 +13,8 @@
     "handouts:remote": "node scripts/import_handouts.mjs --index ../../tmp/handout-index/index.json --remote",
     "practice:dry": "node scripts/import_practice_book.mjs --index ../../tmp/practice-book-index/index.json",
     "practice:remote": "node scripts/import_practice_book.mjs --index ../../tmp/practice-book-index/index.json --remote",
+    "exams:dry": "node scripts/import_exam_papers.mjs",
+    "exams:remote": "node scripts/import_exam_papers.mjs --remote",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "deploy:dry": "wrangler deploy --dry-run"

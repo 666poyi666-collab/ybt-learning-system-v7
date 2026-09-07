@@ -230,6 +230,24 @@ async function answerPageImageContent(env: Env, row: JsonRecord): Promise<ImageC
   return { type: 'image', data: asset.data, mimeType: asset.mimeType }
 }
 
+async function examAnswerPageImageContent(env: Env, row: JsonRecord): Promise<ImageContent | null> {
+  const key = typeof row.page_pack_r2_key === 'string' ? row.page_pack_r2_key : ''
+  const assetKey = typeof row.page_asset_key === 'string' ? row.page_asset_key : ''
+  const expectedSha = typeof row.page_image_sha256 === 'string' ? row.page_image_sha256.toLowerCase() : ''
+  if (!key || !assetKey || !/^[0-9a-f]{64}$/.test(expectedSha)) return null
+  const pack = await readContentJson(env, key)
+  if (!pack || pack.schema_version !== 'ybt-cloud-exam-answer-page-pack-v1'
+      || pack.consumer_guard !== 'GRADER_ONLY_SOURCE_EVIDENCE'
+      || pack.answer_pages_included !== true || pack.learner_context_forbidden !== true
+      || !pack.pages || typeof pack.pages !== 'object') return null
+  const pages = pack.pages as JsonRecord
+  const asset = pages[assetKey] && typeof pages[assetKey] === 'object' ? pages[assetKey] as JsonRecord : null
+  if (!asset || typeof asset.data !== 'string' || typeof asset.mimeType !== 'string') return null
+  if (String(asset.sha256 ?? '').toLowerCase() !== expectedSha) return null
+  if (await sha256Base64(asset.data) !== expectedSha) return null
+  return { type: 'image', data: asset.data, mimeType: asset.mimeType }
+}
+
 function recordArray(value: unknown): JsonRecord[] {
   return Array.isArray(value) ? value.filter((item): item is JsonRecord => Boolean(item && typeof item === 'object' && !Array.isArray(item))) : []
 }
@@ -284,6 +302,618 @@ async function practicePageImageContent(env: Env, row: JsonRecord): Promise<Imag
   return [{ type: 'image', data: asset.data, mimeType: asset.mimeType }]
 }
 
+async function examPageImageContent(env: Env, row: JsonRecord): Promise<ImageContent[]> {
+  const key = typeof row.page_pack_r2_key === 'string' ? row.page_pack_r2_key : ''
+  const sourceId = String(row.source_id ?? '')
+  const pdfPage = Number(row.pdf_page)
+  const expectedSha = typeof row.page_image_sha256 === 'string' ? row.page_image_sha256.toLowerCase() : ''
+  if (!key || !sourceId || !Number.isInteger(pdfPage) || !/^[0-9a-f]{64}$/.test(expectedSha)) return []
+  // Answer/unknown pages are deliberately not copied to an exam page pack.
+  if (Number(row.question_authority ?? 0) !== 1) return []
+  const pageRole = String(row.page_role ?? '').trim().toLowerCase()
+  if (pageRole.includes('answer') || pageRole.includes('答案') || pageRole.includes('解析')
+      || pageRole.includes('solution') || pageRole.includes('analysis')) return []
+  const pack = await readContentJson(env, key)
+  if (!pack || pack.schema_version !== 'ybt-cloud-exam-page-pack-v1' || pack.answer_pages_included === true
+      || !pack.pages || typeof pack.pages !== 'object') return []
+  const pages = pack.pages as JsonRecord
+  const asset = pages[`${sourceId}:${pdfPage}`] && typeof pages[`${sourceId}:${pdfPage}`] === 'object'
+    ? pages[`${sourceId}:${pdfPage}`] as JsonRecord
+    : null
+  if (!asset || typeof asset.data !== 'string' || typeof asset.mimeType !== 'string') return []
+  if (String(asset.sha256 ?? '').toLowerCase() !== expectedSha) return []
+  if (await sha256Base64(asset.data) !== expectedSha) return []
+  return [{ type: 'image', data: asset.data, mimeType: asset.mimeType }]
+}
+
+function jsonArray(value: unknown): unknown[] {
+  if (Array.isArray(value)) return value
+  if (typeof value === 'string') {
+    const parsed = parseJson(value)
+    return Array.isArray(parsed) ? parsed : []
+  }
+  return []
+}
+
+function stringArray(value: unknown): string[] {
+  return [...new Set(jsonArray(value).map((item) => {
+    if (item && typeof item === 'object' && !Array.isArray(item)) {
+      const record = item as JsonRecord
+      return String(record.id ?? record.key ?? record.cycleId ?? record.cycle_id ?? record.courseKey ?? record.course_key ?? record.sectionId ?? record.section_id ?? record.sectionKey ?? record.section_key ?? record.chapterId ?? record.chapter_id ?? record.chapterKey ?? record.chapter_key ?? '')
+    }
+    return String(item ?? '')
+  }).filter(Boolean))]
+}
+
+type ExamCompletion = {
+  cycles: Set<string>
+  courses: Set<string>
+  sections: Set<string>
+  chapters: Set<string>
+}
+
+function completedStatus(value: unknown): boolean {
+  return ['completed', 'complete', 'done', 'finished', 'listened', 'consumed', 'passed', 'verified',
+    'course_listened', 'cycle_completed', 'section_completed', 'chapter_completed', 'full_pass'].includes(String(value ?? '').trim().toLowerCase())
+}
+
+async function examCompletion(env: Env): Promise<ExamCompletion> {
+  const completion: ExamCompletion = {
+    cycles: new Set(), courses: new Set(), sections: new Set(), chapters: new Set(),
+  }
+  const states = await env.DB.prepare(`
+    SELECT state_key, value_json FROM learner_state WHERE user_id = ?
+      AND (state_key LIKE 'course:%' OR state_key LIKE 'cycle:%'
+        OR state_key LIKE 'section:%' OR state_key LIKE 'chapter:%')
+  `).bind(USER_ID).all<Record<string, string>>()
+  const projectedKeys = new Set(states.results.map((row) => String(row.state_key)))
+  for (const row of states.results) {
+    const value = parseJson(row.value_json)
+    const status = value && typeof value === 'object' && !Array.isArray(value)
+      ? (value as JsonRecord).status ?? (value as JsonRecord).completionStatus
+      : null
+    if (!completedStatus(status)) continue
+    const key = String(row.state_key ?? '')
+    if (key.startsWith('course:')) completion.courses.add(key.slice('course:'.length))
+    else if (key.startsWith('cycle:')) completion.cycles.add(key.slice('cycle:'.length))
+    else if (key.startsWith('section:')) completion.sections.add(key.slice('section:'.length))
+    else if (key.startsWith('chapter:')) completion.chapters.add(key.slice('chapter:'.length))
+  }
+  // State projections are authoritative, but retain explicit event evidence as
+  // a read-only fallback for older rows imported before projection repair.
+  const events = await env.DB.prepare(`
+    SELECT event_type, subject_type, subject_id FROM learning_events
+    WHERE user_id = ? AND event_type IN ('course_listened','cycle_completed','section_completed','chapter_completed')
+  `).bind(USER_ID).all<Record<string, string>>()
+  for (const event of events.results) {
+    const kind = ({ course_listened: 'course', cycle_completed: 'cycle', section_completed: 'section', chapter_completed: 'chapter' } as Record<string, string>)[event.event_type]
+    // A later reset/revocation in the projection must not be resurrected by
+    // an older completed event. Fallback applies only to unprojected subjects.
+    if (projectedKeys.has(`${kind}:${event.subject_id}`)) continue
+    if (event.event_type === 'course_listened' || event.subject_type === 'course') completion.courses.add(String(event.subject_id))
+    else if (event.event_type === 'cycle_completed' || event.subject_type === 'cycle') completion.cycles.add(String(event.subject_id))
+    else if (event.event_type === 'section_completed' || event.subject_type === 'section') completion.sections.add(String(event.subject_id))
+    else if (event.event_type === 'chapter_completed' || event.subject_type === 'chapter') completion.chapters.add(String(event.subject_id))
+  }
+  return completion
+}
+
+type ExamTitles = { chapters: Map<string, string>; sections: Map<string, string>; courses: Map<string, string> }
+
+async function examTitles(env: Env): Promise<ExamTitles> {
+  const [chapters, sections, courses] = await Promise.all([
+    env.DB.prepare('SELECT chapter_key, title FROM chapters ORDER BY sort_order').all<Record<string, string>>(),
+    env.DB.prepare('SELECT section_key, title FROM sections ORDER BY sort_order').all<Record<string, string>>(),
+    env.DB.prepare('SELECT course_key, title FROM courses').all<Record<string, string>>(),
+  ])
+  return {
+    chapters: new Map(chapters.results.map((row) => [String(row.chapter_key), String(row.title)])),
+    sections: new Map(sections.results.map((row) => [String(row.section_key), String(row.title)])),
+    courses: new Map(courses.results.map((row) => [String(row.course_key), String(row.title)])),
+  }
+}
+
+function examCycleTitleMap(row: JsonRecord): Map<string, string> {
+  const map = new Map<string, string>()
+  for (const item of jsonArray(row.recommended_path_json)) {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) continue
+    const value = item as JsonRecord
+    const id = String(value.cycle_id ?? value.id ?? '')
+    if (id) map.set(id, String(value.cycle_title ?? value.title ?? id))
+  }
+  return map
+}
+
+function examRouteView(row: JsonRecord, completion: ExamCompletion, titles: ExamTitles): JsonRecord {
+  const requiredCycles = stringArray(row.required_cycle_ids_json)
+  const requiredCourses = stringArray(row.required_course_keys_json)
+  const requiredSections = stringArray(row.required_section_ids_json)
+  const requiredChapters = stringArray(row.required_chapter_ids_json)
+  const cycleTitles = examCycleTitleMap(row)
+  const unknownCycles = requiredCycles.filter((id) => !cycleTitles.has(id))
+  const unknownCourses = requiredCourses.filter((id) => !titles.courses.has(id))
+  const unknownSections = requiredSections.filter((id) => !titles.sections.has(id))
+  const unknownChapters = requiredChapters.filter((id) => !titles.chapters.has(id))
+  const missingCycles = requiredCycles.filter((id) => unknownCycles.includes(id) || !completion.cycles.has(id))
+  const missingCourses = requiredCourses.filter((id) => unknownCourses.includes(id) || !completion.courses.has(id))
+  const missingSections = requiredSections.filter((id) => unknownSections.includes(id) || !completion.sections.has(id))
+  const missingChapters = requiredChapters.filter((id) => unknownChapters.includes(id) || !completion.chapters.has(id))
+  // Generated routes normally enumerate the cycles that make up a section;
+  // requiring a separate section-complete event would deadlock them because
+  // section completion is a later checkpoint.  Use section/chapter state as a
+  // gate only when the route has no finer-grained cycle prerequisites.
+  const sectionGate = requiredCycles.length === 0 && requiredSections.length > 0
+  const chapterGate = requiredCycles.length === 0 && requiredChapters.length > 0
+  const blocked = Number(row.blocked ?? 0) === 1 || String(row.route_status ?? '') === 'blocked'
+    || String(row.route_state ?? '') === 'blocked_external_prerequisite'
+  const visualPendingCount = Number(row.visual_pending_count ?? 0)
+  const visualBlockedCount = Number(row.visual_blocked_count ?? 0)
+  const reviewRequired = Number(row.needs_review ?? 0) === 1
+    || String(row.route_status ?? '') === 'needs_review'
+    || String(row.question_authority ?? '') !== 'original_question_page'
+    || String(row.mapping_status ?? '') !== 'semantically_verified'
+    || String(row.route_state ?? '') !== 'ready_for_optional_unlock'
+    || Number(row.evidence_count ?? 0) === 0
+    || Number(row.invalid_evidence_count ?? 0) > 0
+    || Number(row.missing_image_count ?? 0) > 0
+    || Number(row.route_page_authority ?? 0) !== 1
+    || visualPendingCount > 0
+    || visualBlockedCount > 0
+    || jsonArray(row.uncertainties_json).length > 0
+    || jsonArray(row.blockers_json).length > 0
+  let unlockStatus: string
+  let ready = false
+  if (blocked) unlockStatus = 'blocked'
+  else if (reviewRequired) unlockStatus = 'needs_review'
+  else if (missingCycles.length || missingCourses.length || (sectionGate && missingSections.length) || (chapterGate && missingChapters.length)) unlockStatus = 'locked'
+  else { unlockStatus = 'unlocked'; ready = true }
+  const recommendedPath = jsonArray(row.recommended_path_json).filter((item): item is JsonRecord => Boolean(item && typeof item === 'object' && !Array.isArray(item)))
+  const nextActions = recommendedPath.filter((item) => missingCycles.includes(String(item.cycle_id ?? ''))).map((item) => ({
+    order: item.order ?? null,
+    cycleId: item.cycle_id ?? null,
+    cycleTitle: item.cycle_title ?? item.cycle_id ?? null,
+    courseKeys: stringArray(item.course_keys),
+    action: item.action ?? '听课 -> 完成对应一本通循环 -> 独立自检',
+  }))
+  for (const courseKey of missingCourses) {
+    if (!nextActions.some((item) => item.courseKeys.includes(courseKey))) nextActions.push({
+      order: null, cycleId: null, cycleTitle: null, courseKeys: [courseKey], action: '先完成课程消费记录',
+    })
+  }
+  const route = {
+    questionId: row.question_id,
+    routeId: row.question_id,
+    sourceId: row.source_id,
+    sourceFileName: row.file_name,
+    sourcePdfSha256: row.source_sha256,
+    pdfPage: row.pdf_page === null || row.pdf_page === undefined ? null : Number(row.pdf_page),
+    pdfPages: jsonArray(row.pdf_pages_json),
+    questionNumber: row.question_number === null || row.question_number === undefined ? null : Number(row.question_number),
+    occurrence: Number(row.occurrence ?? 1),
+    questionRef: row.question_ref,
+    questionAuthority: row.question_authority,
+    stem: {
+      text: row.stem_text ?? '',
+      excerpt: row.stem_excerpt ?? '',
+      status: row.stem_text_status,
+      extractionMethod: row.extraction_method,
+      searchOnly: true,
+    },
+    questionTextAuthority: 'original_question_page_image',
+    topicSummary: row.topic_summary ?? '',
+    topicTags: jsonArray(row.topic_tags_json),
+    typeTags: jsonArray(row.type_tags_json),
+    mapping: {
+      profiles: jsonArray(row.mapping_profiles_json),
+      status: row.mapping_status,
+      confidence: row.mapping_confidence,
+      evidence: jsonArray(row.mapping_evidence_json),
+    },
+    routeStatus: row.route_status,
+    routeState: row.route_state,
+    needsReview: Number(row.needs_review ?? 0) === 1,
+    blocked,
+    optional: Number(row.optional ?? 1) === 1,
+    blocksYbtProgress: Number(row.blocks_ybt_progress ?? 0) === 1,
+    unlockStatus,
+    ready,
+    requiredSections: requiredSections.map((id) => ({ id, sectionKey: id, title: titles.sections.get(id) ?? id, completed: completion.sections.has(id) })),
+    requiredChapters: requiredChapters.map((id) => ({ id, chapterKey: id, title: titles.chapters.get(id) ?? id, completed: completion.chapters.has(id) })),
+    requiredCycles: requiredCycles.map((id) => ({ id, cycleId: id, title: cycleTitles.get(id) ?? id, completed: completion.cycles.has(id) })),
+    requiredCourses: requiredCourses.map((id) => ({ key: id, courseKey: id, title: titles.courses.get(id) ?? id, completed: completion.courses.has(id) })),
+    requiredSectionIds: requiredSections,
+    requiredChapterIds: requiredChapters,
+    requiredCycleIds: requiredCycles,
+    requiredCourseKeys: requiredCourses,
+    missingCycles,
+    missingCourses,
+    missingSections,
+    missingChapters,
+    sectionCompletionRequired: sectionGate,
+    chapterCompletionRequired: chapterGate,
+    blockingMissingSections: sectionGate ? missingSections : [],
+    blockingMissingChapters: chapterGate ? missingChapters : [],
+    unknownPrerequisites: { cycles: unknownCycles, courses: unknownCourses, sections: unknownSections, chapters: unknownChapters },
+    evidence: {
+      count: Number(row.evidence_count ?? 0),
+      invalidCount: Number(row.invalid_evidence_count ?? 0),
+      missingImageCount: Number(row.missing_image_count ?? 0),
+      status: Number(row.evidence_count ?? 0) > 0 && Number(row.invalid_evidence_count ?? 0) === 0 && Number(row.missing_image_count ?? 0) === 0 ? 'passed' : 'needs_review',
+    },
+    visualReview: {
+      status: visualBlockedCount > 0 ? 'blocked' : visualPendingCount > 0 ? 'pending' : 'verified',
+      pendingPageCount: visualPendingCount,
+      blockedPageCount: visualBlockedCount,
+      requiredBeforeUnlock: true,
+    },
+    nextActions,
+    externalPrerequisites: jsonArray(row.external_prerequisites_json),
+    uncertainties: jsonArray(row.uncertainties_json),
+    blockers: jsonArray(row.blockers_json),
+    unlockPolicy: parseJson(String(row.unlock_policy_json ?? '{}')) ?? {},
+    answerPolicy: {
+      ...(parseJson(String(row.answer_policy_json ?? '{}')) as JsonRecord ?? {}),
+      answersNotIncluded: true,
+      answerPagesNotQuestionAuthority: true,
+    },
+    recommendedPath,
+  }
+  return route
+}
+
+async function examEvidence(env: Env, questionId: string, includeImage: boolean): Promise<{ evidence: JsonRecord[]; images: ImageContent[] }> {
+  const rows = await env.DB.prepare(`
+    SELECT e.question_id,e.source_id,e.pdf_page,e.source_pdf_sha256,e.page_image_sha256,
+           e.page_pack_r2_key,e.question_authority,e.evidence_json,
+           p.page_role,p.visual_status
+    FROM exam_question_evidence e
+    LEFT JOIN exam_pages p ON p.source_id=e.source_id AND p.pdf_page=e.pdf_page
+    WHERE e.question_id=? ORDER BY e.pdf_page
+  `).bind(questionId).all<JsonRecord>()
+  const evidence: JsonRecord[] = []
+  const images: ImageContent[] = []
+  for (const row of rows.results) {
+    let imageBlockIndex: number | null = null
+    if (includeImage && Number(row.question_authority ?? 0) === 1) {
+      const image = await examPageImageContent(env, row)
+      if (image.length) { images.push(...image); imageBlockIndex = images.length }
+    }
+    evidence.push({
+      sourceId: row.source_id,
+      pdfPage: Number(row.pdf_page),
+      sourcePdfSha256: row.source_pdf_sha256,
+      pageImageSha256: row.page_image_sha256,
+      pageRole: row.page_role ?? 'unknown',
+      questionAuthority: Number(row.question_authority ?? 0) === 1,
+      visualStatus: row.visual_status,
+      evidence: parseJson(String(row.evidence_json ?? '{}')),
+      imageBlockIndex,
+    })
+  }
+  return { evidence, images }
+}
+
+function applyExamImageAvailability(route: JsonRecord, evidence: JsonRecord[]): JsonRecord {
+  const missing = evidence.filter((item) => item.questionAuthority === true && item.imageBlockIndex === null)
+  if (!missing.length) return route
+  const currentUncertainties = Array.isArray(route.uncertainties) ? route.uncertainties.map(String) : []
+  const message = '原卷题面页图当前不可读，必须重新核对原页后才能解锁或判题'
+  return {
+    ...route,
+    ready: false,
+    unlockStatus: 'needs_review',
+    uncertainties: [...new Set([...currentUncertainties, message])],
+    evidence: {
+      ...(route.evidence && typeof route.evidence === 'object' ? route.evidence as JsonRecord : {}),
+      status: 'needs_review',
+      missingImageCount: missing.length,
+    },
+  }
+}
+
+async function examQuestionPayload(env: Env, questionId: string, includeImage: boolean) {
+  const row = await env.DB.prepare(`
+    SELECT q.*, s.file_name, s.source_sha256, s.answer_pdf_pages_json,
+           s.answer_completeness,
+           (SELECT COUNT(*) FROM exam_question_evidence e WHERE e.question_id=q.question_id) AS evidence_count,
+           (SELECT COUNT(*) FROM exam_question_evidence e WHERE e.question_id=q.question_id AND e.question_authority=0) AS invalid_evidence_count,
+           (SELECT COUNT(*) FROM exam_question_evidence e WHERE e.question_id=q.question_id AND e.question_authority=1 AND (e.page_image_sha256 IS NULL OR e.page_pack_r2_key IS NULL)) AS missing_image_count,
+           (SELECT p.question_authority FROM exam_pages p WHERE p.source_id=q.source_id AND p.pdf_page=q.pdf_page) AS route_page_authority,
+           (SELECT COUNT(*) FROM exam_question_evidence e JOIN exam_pages p ON p.source_id=e.source_id AND p.pdf_page=e.pdf_page
+             WHERE e.question_id=q.question_id AND e.question_authority=1
+               AND (p.visual_status IS NULL OR p.visual_status NOT IN ('VISUALLY_VERIFIED','VISION_VERIFIED'))) AS visual_pending_count,
+           (SELECT COUNT(*) FROM exam_question_evidence e JOIN exam_pages p ON p.source_id=e.source_id AND p.pdf_page=e.pdf_page
+             WHERE e.question_id=q.question_id AND e.question_authority=1
+               AND lower(COALESCE(p.visual_status,'')) LIKE '%blocked%') AS visual_blocked_count
+    FROM exam_questions q JOIN exam_sources s ON s.source_id=q.source_id
+    WHERE q.question_id=? AND s.included_for_routes=1 AND q.route_status <> 'retired'
+  `).bind(questionId).first<JsonRecord>()
+  if (!row) return null
+  const completion = await examCompletion(env)
+  const titles = await examTitles(env)
+  let route = examRouteView(row, completion, titles)
+  const evidence = await examEvidence(env, questionId, includeImage)
+  if (includeImage) route = applyExamImageAvailability(route, evidence.evidence)
+  const teacherMethod = await examTeacherMethod(env, questionId)
+  const attempts = await env.DB.prepare(`
+    SELECT attempt_id,request_id,result,independent,hint_level,process_evidence,evidence_hash,created_at
+    FROM exam_attempts WHERE user_id=? AND question_id=? ORDER BY created_at DESC LIMIT 50
+  `).bind(USER_ID, questionId).all<JsonRecord>()
+  return {
+    payload: {
+      ok: true,
+      route,
+      teacherMethod,
+      source: {
+        sourceId: row.source_id,
+        fileName: row.file_name,
+        sourcePdfSha256: row.source_sha256,
+        answerPages: jsonArray(row.answer_pdf_pages_json),
+        answerCompleteness: row.answer_completeness,
+        answerPagesAreNotQuestionAuthority: true,
+      },
+      evidence: evidence.evidence,
+      sourcePageImageCount: evidence.images.length,
+      attempts: attempts.results,
+      attemptPolicy: {
+        optional: true,
+        blocksYbtProgress: false,
+        requiresAllPrerequisites: true,
+        doesNotWriteLearningProgress: true,
+      },
+      answerPolicy: {
+        answersAreNotStoredInExamQuestionPayload: true,
+        answerPagesAreMetadataOnly: true,
+        useYbtAnswerSourcesSeparately: true,
+        useExamAnswerSourcesSeparately: true,
+        examAnswerTool: 'math_get_exam_answer_sources',
+        modelSolutionMustBeLabeled: true,
+      },
+    },
+    images: evidence.images,
+  }
+}
+
+type ExamAnswerQuery = {
+  answerId?: string
+  questionId?: string
+  sourceId?: string
+  questionNumber?: number
+  includeSourcePage: boolean
+  includeHistory: boolean
+  limit: number
+}
+
+async function examAnswerSources(env: Env, query: ExamAnswerQuery) {
+  const answerId = String(query.answerId ?? '').trim()
+  const questionId = String(query.questionId ?? '').trim()
+  const sourceId = String(query.sourceId ?? '').trim()
+  const questionNumber = query.questionNumber
+  if (!answerId && !questionId && !sourceId && questionNumber === undefined) {
+    return failure('selector_required', '读取试卷答案必须提供 answerId、questionId、sourceId 或 questionNumber')
+  }
+  if (questionNumber !== undefined && !answerId && !questionId && !sourceId) {
+    return failure('ambiguous_question_number', '不同试卷题号重复，请同时提供 sourceId 或完整 questionId')
+  }
+  const conditions = query.includeHistory ? ['1=1'] : ['a.active=1', 's.included_for_routes=1']
+  const params: Array<string | number> = []
+  if (answerId) { conditions.push('a.answer_id=?'); params.push(answerId) }
+  if (questionId) { conditions.push('a.question_id=?'); params.push(questionId) }
+  if (sourceId) { conditions.push('a.source_id=?'); params.push(sourceId) }
+  if (questionNumber !== undefined) { conditions.push('a.question_number=?'); params.push(questionNumber) }
+  const rows = await env.DB.prepare(`
+    SELECT a.answer_id,a.source_id,a.source_sha256,a.question_id,a.question_number,a.occurrence,
+           a.answer_ref,a.answer_text,a.answer_excerpt,a.answer_text_sha256,a.answer_text_status,
+           a.extraction_method,a.mapping_status,a.mapping_confidence,a.mapping_evidence_json,
+           a.answer_kind,a.review_required,a.automatic_grading_allowed,a.uncertainties_json,
+           a.manifest_r2_key,a.imported_at,s.file_name,s.answer_completeness,
+           q.question_ref,q.route_status,q.route_state
+    FROM exam_answer_sources a
+    JOIN exam_sources s ON s.source_id=a.source_id
+    LEFT JOIN exam_questions q ON q.question_id=a.question_id
+    WHERE ${conditions.join(' AND ')}
+    ORDER BY a.source_id,a.question_number,a.answer_kind,a.answer_id
+    LIMIT ?
+  `).bind(...params, Math.max(1, Math.min(query.limit, 100))).all<JsonRecord>()
+  const answers: JsonRecord[] = []
+  const images: ImageContent[] = []
+  const imageIndices = new Map<string, number>()
+  for (const row of rows.results) {
+    const evidenceRows = await env.DB.prepare(`
+      SELECT answer_id,source_id,pdf_page,source_pdf_sha256,page_image_sha256,
+             page_pack_r2_key,page_asset_key,answer_authority,evidence_json
+      FROM exam_answer_evidence WHERE answer_id=? AND source_id=? ORDER BY pdf_page
+    `).bind(String(row.answer_id), String(row.source_id)).all<JsonRecord>()
+    const evidence: JsonRecord[] = []
+    for (const evidenceRow of evidenceRows.results) {
+      let imageBlockIndex: number | null = null
+      if (query.includeSourcePage && Number(evidenceRow.answer_authority ?? 0) === 1) {
+        const imageKey = `${evidenceRow.source_id}:${evidenceRow.pdf_page}:${evidenceRow.page_image_sha256}`
+        imageBlockIndex = imageIndices.get(imageKey) ?? null
+        if (imageBlockIndex === null) {
+          const image = await examAnswerPageImageContent(env, evidenceRow)
+          if (image) {
+            images.push(image)
+            imageBlockIndex = images.length
+            imageIndices.set(imageKey, imageBlockIndex)
+          }
+        }
+      }
+      evidence.push({
+        answerId: evidenceRow.answer_id,
+        sourceId: evidenceRow.source_id,
+        pdfPage: Number(evidenceRow.pdf_page),
+        sourcePdfSha256: evidenceRow.source_pdf_sha256,
+        pageImageSha256: evidenceRow.page_image_sha256,
+        answerAuthority: Number(evidenceRow.answer_authority ?? 0) === 1,
+        imageBlockIndex,
+        evidence: parseJson(String(evidenceRow.evidence_json ?? '{}')),
+      })
+    }
+    const rawText = typeof row.answer_text === 'string' ? row.answer_text.trim() : ''
+    const reviewRequired = Number(row.review_required ?? 1) !== 0
+    const mappingStatus = String(row.mapping_status ?? 'needs_review')
+    const pageImageMissing = query.includeSourcePage && evidence.some((item) => item.answerAuthority === true && item.imageBlockIndex === null)
+    const textAvailable = rawText.length > 0
+    answers.push({
+      answerId: row.answer_id,
+      sourceId: row.source_id,
+      sourceFileName: row.file_name,
+      sourcePdfSha256: row.source_sha256,
+      sourceAnswerCompleteness: row.answer_completeness,
+      questionId: row.question_id ?? null,
+      questionNumber: row.question_number === null || row.question_number === undefined ? null : Number(row.question_number),
+      occurrence: Number(row.occurrence ?? 1),
+      answerRef: row.answer_ref,
+      answerKind: row.answer_kind,
+      solutionCompleteness: (parseJson(String(row.mapping_evidence_json ?? '{}')) as JsonRecord | null)?.solutionCompleteness ?? (row.answer_kind === 'reference_answer_key' ? 'answer_key_only' : textAvailable ? 'unverified' : 'missing'),
+      answerText: textAvailable ? rawText : null,
+      answerExcerpt: row.answer_excerpt ?? null,
+      answerTextSha256: row.answer_text_sha256 ?? null,
+      answerTextStatus: row.answer_text_status,
+      extractionMethod: row.extraction_method,
+      mappingStatus,
+      mappingConfidence: row.mapping_confidence,
+      mappingEvidence: parseJson(String(row.mapping_evidence_json ?? '{}')),
+      uncertainties: jsonArray(row.uncertainties_json),
+      reviewRequired,
+      automaticGradingAllowed: false,
+      mustNotGradeAutomatically: true,
+      available: textAvailable || evidence.length > 0,
+      evidenceStatus: !evidence.length ? 'missing' : pageImageMissing ? 'page_image_needs_review' : 'page_bound',
+      evidence,
+      questionRef: row.question_ref ?? null,
+      routeStatus: row.route_status ?? null,
+      routeState: row.route_state ?? null,
+      sourceIntegrity: {
+        sourceSha256: row.source_sha256,
+        answerTextSha256: row.answer_text_sha256 ?? null,
+        manifestR2Key: row.manifest_r2_key,
+      },
+      consumerGuard: 'GRADER_ONLY_SOURCE_EVIDENCE',
+      learnerContextForbidden: true,
+      importedAt: row.imported_at,
+    })
+  }
+  return result({
+    ok: true,
+    selector: { answerId: answerId || null, questionId: questionId || null, sourceId: sourceId || null, questionNumber: questionNumber ?? null },
+    total: answers.length,
+    answers,
+    sourcePageImageCount: images.length,
+    answerPolicy: {
+      explicitToolOnly: true,
+      learnerContextForbidden: true,
+      answerPagesAreNotQuestionAuthority: true,
+      textIsCandidateUntilVisualReview: true,
+      automaticGradingAllowed: false,
+      modelSolutionMustBeLabeledSeparately: true,
+      comparisonOrder: ['reference_answer_source', 'model_solution', 'difference_check', 'recommended_method'],
+    },
+  }, images)
+}
+
+type ExamTeacherMethodView = {
+  status: 'verified' | 'review' | 'blocked' | 'not_available'
+  eligibleForTeacherMethod: boolean
+  evidenceCount: number
+  eligibleEvidenceCount: number
+  reasons: string[]
+  unresolvedCycles: string[]
+  unresolvedCourses: string[]
+  unanchoredCycles: string[]
+  evidence: JsonRecord[]
+}
+
+function examTeacherMethodUnavailable(reason = '未导入逐题教师文稿绑定证据'): ExamTeacherMethodView {
+  return {
+    status: 'not_available',
+    eligibleForTeacherMethod: false,
+    evidenceCount: 0,
+    eligibleEvidenceCount: 0,
+    reasons: [reason],
+    unresolvedCycles: [],
+    unresolvedCourses: [],
+    unanchoredCycles: [],
+    evidence: [],
+  }
+}
+
+async function examTeacherMethod(env: Env, questionId: string): Promise<ExamTeacherMethodView> {
+  try {
+    const route = await env.DB.prepare(`
+      SELECT r.binding_status,r.eligible_for_teacher_method,r.reasons_json,
+             r.unresolved_cycles_json,r.unresolved_courses_json,r.unanchored_cycles_json,
+             i.exam_manifest_sha256 AS bound_manifest_sha256,s.manifest_sha256 AS current_manifest_sha256
+      FROM exam_question_transcript_routes r
+      JOIN exam_transcript_imports i ON i.binding_fingerprint=r.binding_fingerprint
+      JOIN exam_questions q ON q.question_id=r.question_id
+      JOIN exam_sources s ON s.source_id=q.source_id WHERE r.question_id=?
+    `).bind(questionId).first<JsonRecord>()
+    if (!route) return examTeacherMethodUnavailable()
+    const rows = await env.DB.prepare(`
+      SELECT l.evidence_key,l.cycle_id,l.course_key,l.relation,l.binding_status,
+             l.eligible_for_teacher_method,l.reasons_json,l.ordinal,
+             e.evidence_id,e.section_id,e.cycle_title,e.semantic_status,e.evidence_method,
+             e.substantive_match_count,e.matched_topic_terms_json,e.teacher_method_signals_json,
+             e.sentence_indices_json,e.time_spans_json,e.timeline_status,e.duration_s,
+             e.transcript_file,e.transcript_sha256,e.transcript_text_sha256,
+             e.catalog_transcript_sha256,e.catalog_transcript_text_sha256,
+             e.source_hashes_match_json,e.verification_reasons_json,c.transcript_sha256 AS current_transcript_sha256
+      FROM exam_question_transcript_links l
+      JOIN exam_transcript_evidence e ON e.evidence_key=l.evidence_key
+      LEFT JOIN courses c ON c.course_key=l.course_key
+      WHERE l.question_id=? ORDER BY l.ordinal,e.cycle_id,e.course_key
+    `).bind(questionId).all<JsonRecord>()
+    const manifestStale = route.bound_manifest_sha256 !== route.current_manifest_sha256
+    const evidence = rows.results.map((row) => ({
+      evidenceKey: row.evidence_key,
+      evidenceId: row.evidence_id,
+      sectionId: row.section_id,
+      cycleId: row.cycle_id,
+      cycleTitle: row.cycle_title,
+      courseKey: row.course_key,
+      relation: row.relation,
+      bindingStatus: row.binding_status,
+      eligibleForTeacherMethod: !manifestStale && row.current_transcript_sha256 === row.transcript_sha256 && Number(row.eligible_for_teacher_method ?? 0) === 1,
+      sourceStale: manifestStale || row.current_transcript_sha256 !== row.transcript_sha256,
+      semanticStatus: row.semantic_status,
+      evidenceMethod: row.evidence_method,
+      substantiveMatchCount: Number(row.substantive_match_count ?? 0),
+      matchedTopicTerms: jsonArray(row.matched_topic_terms_json),
+      teacherMethodSignals: parseJson(String(row.teacher_method_signals_json ?? '{}')) ?? {},
+      sentenceIndices: jsonArray(row.sentence_indices_json),
+      timeSpans: jsonArray(row.time_spans_json),
+      timelineStatus: row.timeline_status,
+      durationS: row.duration_s === null || row.duration_s === undefined ? null : Number(row.duration_s),
+      transcriptFile: row.transcript_file,
+      transcriptSha256: row.transcript_sha256,
+      transcriptTextSha256: row.transcript_text_sha256,
+      catalogTranscriptSha256: row.catalog_transcript_sha256,
+      catalogTranscriptTextSha256: row.catalog_transcript_text_sha256,
+      sourceHashesMatch: parseJson(String(row.source_hashes_match_json ?? '{}')) ?? {},
+      verificationReasons: jsonArray(row.verification_reasons_json),
+      linkReasons: jsonArray(row.reasons_json),
+    }))
+    return {
+      status: (manifestStale || evidence.some((item) => item.sourceStale) ? 'blocked' : String(route.binding_status ?? 'blocked')) as ExamTeacherMethodView['status'],
+      eligibleForTeacherMethod: !manifestStale && evidence.length > 0 && !evidence.some((item) => item.sourceStale) && Number(route.eligible_for_teacher_method ?? 0) === 1,
+      evidenceCount: evidence.length,
+      eligibleEvidenceCount: evidence.filter((item) => item.eligibleForTeacherMethod === true).length,
+      reasons: [...jsonArray(route.reasons_json).map(String), ...(manifestStale || evidence.some((item) => item.sourceStale) ? ['source_binding_stale'] : [])],
+      unresolvedCycles: jsonArray(route.unresolved_cycles_json).map(String),
+      unresolvedCourses: jsonArray(route.unresolved_courses_json).map(String),
+      unanchoredCycles: jsonArray(route.unanchored_cycles_json).map(String),
+      evidence,
+    }
+  } catch (error) {
+    // The content/route plane remains readable during a rolling deployment
+    // before the additive evidence migration is applied.
+    if (String(error).includes('no such table')) return examTeacherMethodUnavailable('教师文稿绑定表尚未就绪')
+    throw error
+  }
+}
+
 async function systemStatus(env: Env) {
   const row = await env.DB.prepare(`
     SELECT
@@ -300,8 +930,18 @@ async function systemStatus(env: Env) {
       (SELECT COUNT(*) FROM practice_sources) AS practice_sources,
       (SELECT COUNT(*) FROM practice_items) AS practice_items,
       (SELECT COUNT(*) FROM practice_attempts WHERE user_id = ?) AS practice_attempts,
-      (SELECT COUNT(*) FROM handwriting_analyses WHERE user_id = ?) AS handwriting_analyses
-  `).bind(USER_ID, USER_ID, USER_ID, USER_ID, USER_ID).first<Record<string, number | string>>()
+      (SELECT COUNT(*) FROM handwriting_analyses WHERE user_id = ?) AS handwriting_analyses,
+      (SELECT COUNT(*) FROM exam_sources) AS exam_sources,
+      (SELECT COUNT(*) FROM exam_pages WHERE question_authority = 1) AS exam_question_pages,
+      (SELECT COUNT(*) FROM exam_questions) AS exam_questions,
+      (SELECT COUNT(*) FROM exam_route_links) AS exam_route_links,
+      (SELECT COUNT(*) FROM exam_attempts WHERE user_id = ?) AS exam_attempts,
+      (SELECT COUNT(*) FROM exam_answer_sources WHERE active = 1) AS exam_answer_sources,
+      (SELECT COUNT(*) FROM exam_answer_evidence) AS exam_answer_evidence,
+      (SELECT COUNT(*) FROM exam_transcript_evidence) AS exam_transcript_evidence,
+      (SELECT COUNT(*) FROM exam_question_transcript_links) AS exam_transcript_links,
+      (SELECT COUNT(*) FROM exam_question_transcript_routes) AS exam_transcript_routes
+  `).bind(USER_ID, USER_ID, USER_ID, USER_ID, USER_ID, USER_ID).first<Record<string, number | string>>()
   const source = await env.DB.prepare(`
     SELECT id, git_commit, manifest_sha256, imported_at
     FROM source_versions ORDER BY imported_at DESC LIMIT 1
@@ -713,7 +1353,7 @@ async function wrongQuestionExport(env: Env, sectionKey: string, format: string)
 function createServer(env: Env, scopes: readonly string[]): McpServer {
   const server = new McpServer(PROJECT, {
     instructions:
-      '这是课程顺序优先的数学学习系统。每门课先调用 math_get_course_learning_bundle，一次核对老师全文、讲义原页、对应一本通和已解锁必刷题；执行顺序是听课、一本通、必刷题基础、拔高、验收。讲义和必刷题 OCR 只用于定位，公式题面必须读取原页图；必刷题源 PDF 没有答案。用户上传手写过程时，先核对原题，再逐行转写并定位第一处分歧，用 math_record_handwriting_analysis 保存 proposed 分析；用户确认后才调用 math_record_wrong_question 写正式错题和题型。用户要求整理时调用 math_export_wrong_questions。课程覆盖、用户已学、题目已通过和冷复测是不同状态。不要输出未请求的答案，不要把内部模拟进度当成真实用户进度。',
+      '这是课程顺序优先的数学学习系统。每门课先调用 math_get_course_learning_bundle，一次核对老师全文、讲义原页、对应一本通和已解锁必刷题；需要题型讲法和时间段时继续调用 math_get_teacher_method。执行顺序是听课、一本通、必刷题基础、拔高、验收。讲义和必刷题 OCR 只用于定位，公式题面必须读取原页图；必刷题源 PDF 没有答案。用户上传手写过程时，先核对原题，再逐行转写并定位第一处分歧，用 math_record_handwriting_analysis 保存 proposed 分析；用户确认后才调用 math_record_wrong_question 写正式错题和题型。用户要求整理时调用 math_export_wrong_questions。课程覆盖、用户已学、题目已通过和冷复测是不同状态。不要输出未请求的答案，不要把内部模拟进度当成真实用户进度。',
   })
   const readAllowed = () => scopes.includes(READ_SCOPE)
   const writeAllowed = () => scopes.includes(WRITE_SCOPE)
@@ -1125,6 +1765,342 @@ function createServer(env: Env, scopes: readonly string[]): McpServer {
       practiceIsOptional: true,
       practiceDoesNotBlockYbtProgress: true,
       items,
+    })
+  })
+
+  const examRouteInputSchema = {
+    sourceId: z.string().max(120).default(''),
+    questionId: z.string().max(240).default(''),
+    questionNumber: z.number().int().min(1).max(999).optional(),
+    chapterKey: z.string().max(40).default(''),
+    sectionKey: z.string().max(80).default(''),
+    cycleId: z.string().max(200).default(''),
+    courseKey: z.string().max(240).default(''),
+    routeStatus: z.string().max(40).default(''),
+    routeState: z.string().max(60).default(''),
+    unlockStatus: z.string().max(60).default(''),
+    limit: z.number().int().min(1).max(200).default(50),
+  }
+
+  const readExamPapers = async ({ sourceId, limit }: { sourceId: string; limit: number }) => {
+    if (!readAllowed()) return failure('insufficient_scope', READ_SCOPE)
+    const rows = await env.DB.prepare(`
+      SELECT s.source_id,s.stable_source_id,s.title,s.file_name,s.relative_path,
+             s.source_sha256,s.page_count,s.question_pdf_pages_json,s.answer_pdf_pages_json,
+             s.answer_separation_status,s.question_completeness,s.answer_completeness,
+             s.question_count,s.manifest_r2_key,
+             COUNT(CASE WHEN q.route_status <> 'retired' THEN q.question_id END) AS route_count,
+             SUM(CASE WHEN q.route_status <> 'retired' AND q.needs_review=1 THEN 1 ELSE 0 END) AS review_count,
+             SUM(CASE WHEN q.route_status <> 'retired' AND q.blocked=1 THEN 1 ELSE 0 END) AS blocked_count,
+             (SELECT COUNT(*) FROM exam_answer_sources a WHERE a.source_id=s.source_id AND a.active=1) AS answer_source_count,
+             (SELECT COUNT(*) FROM exam_answer_sources a WHERE a.source_id=s.source_id AND a.active=1 AND a.question_id IS NOT NULL) AS answer_mapped_count,
+             (SELECT COUNT(*) FROM exam_answer_sources a WHERE a.source_id=s.source_id AND a.active=1 AND a.question_id IS NULL) AS answer_unresolved_count,
+             (SELECT COUNT(*) FROM exam_answer_evidence e JOIN exam_answer_sources a ON a.answer_id=e.answer_id WHERE a.source_id=s.source_id AND a.active=1) AS answer_evidence_count
+      FROM exam_sources s LEFT JOIN exam_questions q ON q.source_id=s.source_id
+      WHERE s.included_for_routes=1
+        AND (?='' OR s.source_id=?)
+      GROUP BY s.source_id ORDER BY s.file_name LIMIT ?
+    `).bind(sourceId, sourceId, limit).all<JsonRecord>()
+    return result({
+      ok: true,
+      sources: rows.results.map((row) => ({
+        sourceId: row.source_id,
+        stableSourceId: row.stable_source_id,
+        title: row.title,
+        fileName: row.file_name,
+        relativePath: row.relative_path,
+        sourcePdfSha256: row.source_sha256,
+        pageCount: Number(row.page_count ?? 0),
+        questionPages: jsonArray(row.question_pdf_pages_json),
+        answerPages: jsonArray(row.answer_pdf_pages_json),
+        answerSeparationStatus: row.answer_separation_status,
+        questionCompleteness: row.question_completeness,
+        answerCompleteness: row.answer_completeness,
+        questionCount: Number(row.question_count ?? 0),
+        routeCount: Number(row.route_count ?? 0),
+        reviewCount: Number(row.review_count ?? 0),
+        blockedCount: Number(row.blocked_count ?? 0),
+        answerSourceCount: Number(row.answer_source_count ?? 0),
+        answerMappedCount: Number(row.answer_mapped_count ?? 0),
+        answerUnresolvedCount: Number(row.answer_unresolved_count ?? 0),
+        answerEvidenceCount: Number(row.answer_evidence_count ?? 0),
+        answerPagesAreMetadataOnly: true,
+        answerPagesAreGraderOnly: true,
+      })),
+      incrementalImport: '按 source_pdf_sha256/source_id 去重；新增试卷生成新版本，不覆盖用户作答记录。',
+    })
+  }
+
+  server.registerTool('math_get_exam_papers', {
+    description: '列出云端已导入的期中、期末和月考试卷来源及题目/复核数量；答案页只显示元数据。',
+    inputSchema: { sourceId: z.string().max(120).default(''), limit: z.number().int().min(1).max(100).default(50) },
+  }, readExamPapers)
+
+  const readExamRoutes = async ({ sourceId, questionId, questionNumber, chapterKey, sectionKey, cycleId, courseKey, routeStatus, routeState, unlockStatus, limit }: {
+    sourceId: string
+    questionId: string
+    questionNumber?: number
+    chapterKey: string
+    sectionKey: string
+    cycleId: string
+    courseKey: string
+    routeStatus: string
+    routeState: string
+    unlockStatus: string
+    limit: number
+  }) => {
+    if (!readAllowed()) return failure('insufficient_scope', READ_SCOPE)
+    const rows = await env.DB.prepare(`
+      SELECT q.*, s.file_name, s.source_sha256,
+        (SELECT a.result FROM exam_attempts a
+          WHERE a.user_id=? AND a.question_id=q.question_id
+          ORDER BY a.created_at DESC LIMIT 1) AS latest_attempt_result,
+        (SELECT a.created_at FROM exam_attempts a
+          WHERE a.user_id=? AND a.question_id=q.question_id
+          ORDER BY a.created_at DESC LIMIT 1) AS latest_attempt_at,
+        (SELECT COUNT(*) FROM exam_attempts a
+          WHERE a.user_id=? AND a.question_id=q.question_id) AS attempt_count,
+        (SELECT COUNT(*) FROM exam_question_evidence e WHERE e.question_id=q.question_id) AS evidence_count,
+        (SELECT COUNT(*) FROM exam_question_evidence e WHERE e.question_id=q.question_id AND e.question_authority=0) AS invalid_evidence_count,
+        (SELECT COUNT(*) FROM exam_question_evidence e WHERE e.question_id=q.question_id AND e.question_authority=1 AND (e.page_image_sha256 IS NULL OR e.page_pack_r2_key IS NULL)) AS missing_image_count,
+        (SELECT p.question_authority FROM exam_pages p WHERE p.source_id=q.source_id AND p.pdf_page=q.pdf_page) AS route_page_authority,
+        (SELECT COUNT(*) FROM exam_question_evidence e JOIN exam_pages p ON p.source_id=e.source_id AND p.pdf_page=e.pdf_page
+          WHERE e.question_id=q.question_id AND e.question_authority=1
+            AND (p.visual_status IS NULL OR p.visual_status NOT IN ('VISUALLY_VERIFIED','VISION_VERIFIED'))) AS visual_pending_count,
+        (SELECT COUNT(*) FROM exam_question_evidence e JOIN exam_pages p ON p.source_id=e.source_id AND p.pdf_page=e.pdf_page
+          WHERE e.question_id=q.question_id AND e.question_authority=1
+            AND lower(COALESCE(p.visual_status,'')) LIKE '%blocked%') AS visual_blocked_count
+      FROM exam_questions q JOIN exam_sources s ON s.source_id=q.source_id
+      WHERE s.included_for_routes=1
+        AND (?='' OR q.source_id=?)
+        AND (?='' OR q.question_id=?)
+        AND (? < 0 OR q.question_number=?)
+        AND (?='' OR q.route_status=?)
+        AND (?='' OR q.route_state=?)
+        AND (?='' OR EXISTS (SELECT 1 FROM exam_route_links l WHERE l.question_id=q.question_id AND l.route_type='chapter' AND l.route_key=?))
+        AND (?='' OR EXISTS (SELECT 1 FROM exam_route_links l WHERE l.question_id=q.question_id AND l.route_type='section' AND l.route_key=?))
+        AND (?='' OR EXISTS (SELECT 1 FROM exam_route_links l WHERE l.question_id=q.question_id AND l.route_type='cycle' AND l.route_key=?))
+        AND (?='' OR EXISTS (SELECT 1 FROM exam_route_links l WHERE l.question_id=q.question_id AND l.route_type='course' AND l.route_key=?))
+      ORDER BY s.file_name, q.pdf_page, q.question_number, q.occurrence
+      LIMIT ?
+    `).bind(
+      USER_ID, USER_ID, USER_ID,
+      sourceId, sourceId,
+      questionId, questionId,
+      questionNumber === undefined ? -1 : questionNumber, questionNumber === undefined ? -1 : questionNumber,
+      routeStatus, routeStatus,
+      routeState, routeState,
+      chapterKey, chapterKey,
+      sectionKey, sectionKey,
+      cycleId, cycleId,
+      courseKey, courseKey,
+      limit,
+    ).all<JsonRecord>()
+    const completion = await examCompletion(env)
+    const titles = await examTitles(env)
+    const routeViews: JsonRecord[] = rows.results.map((row) => ({
+      ...examRouteView(row, completion, titles),
+      teacherMethod: { status: 'not_loaded', nextTool: 'math_get_exam_teacher_method', questionId: row.question_id },
+      latestAttempt: row.latest_attempt_result ? {
+        result: row.latest_attempt_result,
+        createdAt: row.latest_attempt_at ?? null,
+      } : null,
+      attemptCount: Number(row.attempt_count ?? 0),
+    }))
+    const routes = routeViews.filter((route) => (routeStatus === 'retired' || String(route.routeStatus ?? '') !== 'retired')
+      && (!unlockStatus || String(route.unlockStatus ?? '') === unlockStatus))
+    return result({
+      ok: true,
+      filters: { sourceId: sourceId || null, questionId: questionId || null, questionNumber: questionNumber ?? null, chapterKey: chapterKey || null, sectionKey: sectionKey || null, cycleId: cycleId || null, courseKey: courseKey || null, routeStatus: routeStatus || null, routeState: routeState || null, unlockStatus: unlockStatus || null },
+      routePolicy: {
+        optional: true,
+        blocksYbtProgress: false,
+        progressSource: 'live_cloud_d1_learner_state_and_events',
+        unlockRule: '全部 required_cycles/courses 已有明确完成记录；没有细粒度循环时才以 required_sections/chapters 作为前置，且映射为 semantically_verified、题面无待复核时才可选做。',
+        questionAuthority: 'original_question_page',
+        answerPagesAreMetadataOnly: true,
+      },
+      total: routes.length,
+      routes,
+    })
+  }
+
+  server.registerTool('math_get_exam_routes', {
+    description: '读取期中/期末/月考试卷题目与双向学习路线。返回每题需要先完成的循环、课程、节次和解锁状态；试卷是可选题源，不阻塞一本通主线。',
+    inputSchema: examRouteInputSchema,
+  }, readExamRoutes)
+
+  const readExamQuestion = async ({ questionId, includeImage }: { questionId: string; includeImage: boolean }) => {
+    if (!readAllowed()) return failure('insufficient_scope', READ_SCOPE)
+    const response = await examQuestionPayload(env, questionId, includeImage)
+    return response ? result(response.payload, response.images)
+      : failure('not_found', '未找到试卷题目', { questionId })
+  }
+
+  server.registerTool('math_get_exam_question', {
+    description: '读取指定试卷题目的完整路线元数据和原卷题面页图。OCR/文字仅作定位；答案页不返回且不能作为题面依据。',
+    inputSchema: { questionId: z.string().min(1).max(240), includeImage: z.boolean().default(true) },
+  }, readExamQuestion)
+
+  server.registerTool('math_get_exam_route', {
+    description: '读取一道试卷题的前置循环、课程和当前真实用户解锁状态（math_get_exam_question 的兼容别名）。',
+    inputSchema: { questionId: z.string().min(1).max(240), includeImage: z.boolean().default(true) },
+  }, readExamQuestion)
+
+  const readExamAnswerSources = async ({ answerId, questionId, sourceId, questionNumber, includeSourcePage, includeHistory, limit }: {
+    answerId?: string
+    questionId?: string
+    sourceId?: string
+    questionNumber?: number
+    includeSourcePage: boolean
+    includeHistory: boolean
+    limit: number
+  }) => {
+    if (!readAllowed()) return failure('insufficient_scope', READ_SCOPE)
+    // History includes retired logical records, not overwritten revisions.
+    return examAnswerSources(env, { answerId, questionId, sourceId, questionNumber, includeSourcePage, includeHistory, limit })
+  }
+
+  const examAnswerInputSchema = {
+    answerId: z.string().max(240).default(''),
+    questionId: z.string().max(240).default(''),
+    sourceId: z.string().max(120).default(''),
+    questionNumber: z.number().int().min(1).max(999).optional(),
+    includeSourcePage: z.boolean().default(true),
+    includeHistory: z.boolean().default(false),
+    limit: z.number().int().min(1).max(100).default(20),
+  }
+  server.registerTool('math_get_exam_answer_sources', {
+    description: '显式读取试卷参考答案证据（独立 grader-only 通道）。返回答案候选文本、原答案页图和绑定状态；不会进入题面工具、学习者上下文或自动判分。',
+    inputSchema: examAnswerInputSchema,
+  }, readExamAnswerSources)
+  server.registerTool('math_get_exam_answers', {
+    description: 'math_get_exam_answer_sources 的兼容别名；仅用于用户明确要求查看试卷答案时读取隔离证据。',
+    inputSchema: examAnswerInputSchema,
+  }, readExamAnswerSources)
+
+  const readExamTeacherMethod = async ({ questionId }: { questionId: string }) => {
+    if (!readAllowed()) return failure('insufficient_scope', READ_SCOPE)
+    const question = await env.DB.prepare(`
+      SELECT question_id,source_id,question_number,question_ref
+      FROM exam_questions WHERE question_id=? AND route_status <> 'retired'
+    `).bind(questionId).first<JsonRecord>()
+    if (!question) return failure('not_found', '未找到试卷题目', { questionId })
+    return result({
+      ok: true,
+      question: {
+        questionId: question.question_id,
+        sourceId: question.source_id,
+        questionNumber: question.question_number,
+        questionRef: question.question_ref,
+      },
+      teacherMethod: await examTeacherMethod(env, questionId),
+      policy: {
+        transcriptTextIncluded: false,
+        answerContentIncluded: false,
+        onlyVerifiedEvidenceMayBeCalledTeacherMethodProof: true,
+        courseConsumptionIsSeparate: true,
+      },
+    })
+  }
+  server.registerTool('math_get_exam_teacher_method', {
+    description: '读取试卷题对应的教师文稿方法证据（课程、循环、句索引和时间片）；不返回转写原句或答案。',
+    inputSchema: { questionId: z.string().min(1).max(240) },
+  }, readExamTeacherMethod)
+  server.registerTool('math_get_exam_transcript_evidence', {
+    description: 'math_get_exam_teacher_method 的兼容别名；仅返回答案安全的教师文稿证据。',
+    inputSchema: { questionId: z.string().min(1).max(240) },
+  }, readExamTeacherMethod)
+
+  server.registerTool('math_record_exam_attempt', {
+    description: '记录可选试卷题的真实作答。仅在题面映射已核验且全部前置完成后允许写入；不会改变一本通、章节或课程进度。',
+    inputSchema: {
+      requestId: z.uuid(),
+      questionId: z.string().min(1).max(240),
+      result: z.enum(['correct', 'incorrect', 'partial', 'skipped', 'needs_review']),
+      independent: z.boolean(),
+      hintLevel: z.enum(['none', 'minimal', 'method', 'solution_seen']).default('none'),
+      processEvidence: z.string().min(1).max(4000),
+      evidenceHash: z.string().regex(/^[0-9a-f]{64}$/).optional(),
+      baseVersion: z.number().int().nonnegative(),
+    },
+  }, async ({ requestId, questionId, result: attemptResult, independent, hintLevel, processEvidence, evidenceHash, baseVersion }) => {
+    if (!writeAllowed()) return failure('insufficient_scope', WRITE_SCOPE)
+    const existing = await env.DB.prepare(`
+      SELECT attempt_id,question_id,result,independent,hint_level,process_evidence,evidence_hash,created_at
+      FROM exam_attempts WHERE request_id=? AND user_id=?
+    `).bind(requestId, USER_ID).first<JsonRecord>()
+    if (existing) {
+      const same = existing.question_id === questionId && existing.result === attemptResult
+        && Number(existing.independent) === (independent ? 1 : 0)
+        && existing.hint_level === hintLevel && existing.process_evidence === processEvidence
+        && existing.evidence_hash === (evidenceHash ?? null)
+      return same ? result({ ok: true, attempt: existing, replayed: true, optional: true, blocksYbtProgress: false })
+        : failure('idempotency_conflict', 'requestId 已用于不同试卷题尝试')
+    }
+    const question = await env.DB.prepare(`
+      SELECT q.question_id FROM exam_questions q JOIN exam_sources s ON s.source_id=q.source_id
+      WHERE q.question_id=? AND s.included_for_routes=1 AND q.route_status <> 'retired'
+    `).bind(questionId).first<JsonRecord>()
+    if (!question) return failure('not_found', '未找到试卷题目', { questionId })
+    const completion = await examCompletion(env)
+    const titles = await examTitles(env)
+    const routeRow = await env.DB.prepare(`
+      SELECT q.*,
+        (SELECT COUNT(*) FROM exam_question_evidence e WHERE e.question_id=q.question_id) AS evidence_count,
+        (SELECT COUNT(*) FROM exam_question_evidence e WHERE e.question_id=q.question_id AND e.question_authority=0) AS invalid_evidence_count,
+        (SELECT COUNT(*) FROM exam_question_evidence e WHERE e.question_id=q.question_id AND e.question_authority=1 AND (e.page_image_sha256 IS NULL OR e.page_pack_r2_key IS NULL)) AS missing_image_count,
+        (SELECT p.question_authority FROM exam_pages p WHERE p.source_id=q.source_id AND p.pdf_page=q.pdf_page) AS route_page_authority,
+        (SELECT COUNT(*) FROM exam_question_evidence e JOIN exam_pages p ON p.source_id=e.source_id AND p.pdf_page=e.pdf_page
+          WHERE e.question_id=q.question_id AND e.question_authority=1
+            AND (p.visual_status IS NULL OR p.visual_status NOT IN ('VISUALLY_VERIFIED','VISION_VERIFIED'))) AS visual_pending_count,
+        (SELECT COUNT(*) FROM exam_question_evidence e JOIN exam_pages p ON p.source_id=e.source_id AND p.pdf_page=e.pdf_page
+          WHERE e.question_id=q.question_id AND e.question_authority=1
+            AND lower(COALESCE(p.visual_status,'')) LIKE '%blocked%') AS visual_blocked_count
+      FROM exam_questions q JOIN exam_sources s ON s.source_id=q.source_id
+      WHERE q.question_id=? AND s.included_for_routes=1 AND q.route_status <> 'retired'
+    `).bind(questionId).first<JsonRecord>()
+    if (!routeRow) return failure('not_found', '未找到试卷题目路线', { questionId })
+    const route = examRouteView(routeRow, completion, titles)
+    if (!route.ready) {
+      return failure('exam_route_locked', '试卷题目前置未完成或仍待原页复核，暂不能记录作答', {
+        questionId,
+        unlockStatus: route.unlockStatus,
+        missingCycles: route.missingCycles,
+        missingCourses: route.missingCourses,
+        missingSections: route.missingSections,
+        missingChapters: route.missingChapters,
+        unknownPrerequisites: route.unknownPrerequisites,
+        evidence: route.evidence,
+        uncertainties: route.uncertainties,
+        blockers: route.blockers,
+      })
+    }
+    const sourceEvidence = await examEvidence(env, questionId, true)
+    const unavailableEvidence = sourceEvidence.evidence.filter((item) => item.questionAuthority === true && item.imageBlockIndex === null)
+    if (unavailableEvidence.length) {
+      return failure('exam_source_page_unavailable', '原卷题面页图不可读，已停止记录试卷作答', {
+        questionId,
+        missingPages: unavailableEvidence.map((item) => item.pdfPage),
+      })
+    }
+    if (hintLevel === 'solution_seen' && independent) return failure('invalid_independence', '看过完整解法后不能标为独立作答')
+    const count = await env.DB.prepare('SELECT COUNT(*) AS count FROM exam_attempts WHERE user_id=? AND question_id=?').bind(USER_ID, questionId).first<{ count: number | string }>()
+    if (Number(count?.count ?? 0) !== baseVersion) return failure('version_conflict', '试卷题尝试版本已变化', { expected: baseVersion, actual: Number(count?.count ?? 0) })
+    const attemptId = crypto.randomUUID()
+    const createdAt = new Date().toISOString()
+    await env.DB.prepare(`
+      INSERT INTO exam_attempts (attempt_id,request_id,user_id,question_id,result,independent,hint_level,process_evidence,evidence_hash,created_at)
+      VALUES (?,?,?,?,?,?,?,?,?,?)
+    `).bind(attemptId, requestId, USER_ID, questionId, attemptResult, independent ? 1 : 0, hintLevel, processEvidence, evidenceHash ?? null, createdAt).run()
+    return result({
+      ok: true,
+      attempt: { attemptId, requestId, questionId, result: attemptResult, independent, hintLevel, createdAt },
+      version: baseVersion + 1,
+      replayed: false,
+      optional: true,
+      blocksYbtProgress: false,
+      progressMutation: 'none',
     })
   })
 
@@ -1680,13 +2656,14 @@ function protectedResourceMetadata(env: Env): Response {
 
 async function readiness(env: Env): Promise<Response> {
   try {
-    const row = await env.DB.prepare(`SELECT COUNT(*) AS count FROM sqlite_master WHERE type = 'table' AND name IN ('source_versions','chapters','sections','items','courses','item_course_links','transcript_chunks','learning_events','learner_state','questions','answer_sources','learner_diagnostics','memory_items','type_classifications','wrong_question_exports','handout_sources','handout_pages','handout_course_links','practice_sources','practice_pages','practice_items','practice_route_links','practice_attempts','handwriting_analyses')`).first<{ count: number | string }>()
+    const row = await env.DB.prepare(`SELECT COUNT(*) AS count FROM sqlite_master WHERE type = 'table' AND name IN ('source_versions','chapters','sections','items','courses','item_course_links','transcript_chunks','learning_events','learner_state','questions','answer_sources','learner_diagnostics','memory_items','type_classifications','wrong_question_exports','handout_sources','handout_pages','handout_course_links','practice_sources','practice_pages','practice_items','practice_route_links','practice_attempts','handwriting_analyses','exam_sources','exam_pages','exam_questions','exam_question_evidence','exam_route_links','exam_attempts','exam_answer_sources','exam_answer_evidence','exam_transcript_imports','exam_transcript_evidence','exam_question_transcript_links','exam_question_transcript_routes')`).first<{ count: number | string }>()
     const answerColumns = await env.DB.prepare(`SELECT COUNT(*) AS count FROM pragma_table_info('answer_sources') WHERE name IN ('evidence_kind','confidence','review_required','automatic_grading_allowed','answer_text_kind','parse_status','source_pdf_name','source_pdf_sha256','source_pdf_page','source_page_image_sha256','source_page_r2_key','source_page_asset_key')`).first<{ count: number | string }>()
     const configured = oauthConfig(env) !== null
     const answerEvidenceReady = Number(answerColumns?.count ?? 0) === 12
-    const storageReady = Number(row?.count ?? 0) === 24 && answerEvidenceReady
+    const storageReady = Number(row?.count ?? 0) === 36 && answerEvidenceReady
     const ready = storageReady && configured
-    return Response.json({ ok: ready, service: 'math-learning-mcp', storage: storageReady ? 'ready' : 'migration_required', answerEvidence: answerEvidenceReady ? 'ready' : 'migration_required', oauth: configured ? 'configured' : 'not_configured' }, { status: ready ? 200 : 503 })
+    const transcriptEvidenceReady = Number(row?.count ?? 0) === 36
+    return Response.json({ ok: ready, service: 'math-learning-mcp', storage: storageReady ? 'ready' : 'migration_required', answerEvidence: answerEvidenceReady ? 'ready' : 'migration_required', transcriptEvidence: transcriptEvidenceReady ? 'ready' : 'migration_required', oauth: configured ? 'configured' : 'not_configured' }, { status: ready ? 200 : 503 })
   } catch {
     return Response.json({ ok: false, service: 'math-learning-mcp', storage: 'unavailable' }, { status: 503 })
   }

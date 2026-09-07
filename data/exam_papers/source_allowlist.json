@@ -1,0 +1,22 @@
+{
+  "schema_version": "math-exam-source-allowlist-v1",
+  "purpose": "数学期中/期末原卷；不把 Downloads 中的物理、讲义或答案册混入数学试卷索引",
+  "files": [
+    "湖南省临湘市第二中学2024-2025学年高二上学期期中考试数学试卷（11.24）.pdf",
+    "2025湖南长沙市高二数学上学期期中试题.pdf",
+    "2025-2026学年湖南省岳阳楼区高二（上）期末数学试卷.pdf",
+    "2024-2025学年湖南省岳阳市临湘市高二（上）期中数学试卷.pdf"
+  ],
+  "sha256": {
+    "湖南省临湘市第二中学2024-2025学年高二上学期期中考试数学试卷（11.24）.pdf": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+    "2025湖南长沙市高二数学上学期期中试题.pdf": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+    "2025-2026学年湖南省岳阳楼区高二（上）期末数学试卷.pdf": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+    "2024-2025学年湖南省岳阳市临湘市高二（上）期中数学试卷.pdf": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88"
+  },
+  "policy": {
+    "source_sha_is_canonical": true,
+    "same_sha_renames_are_aliases": true,
+    "answer_only_files_are_excluded": true,
+    "new_files_without_mapping_remain_review_candidates": true
+  }
+}

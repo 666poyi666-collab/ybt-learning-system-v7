@@ -1,5 +1,57 @@
 # Development Log
 
+## 2026-09-08 试卷映射、答案与教师证据修复上线
+
+- 原卷17页/74题逐页复核，修复临湘二中8–14等题目错位、等差/等比章节混淆以及4处跨页证据遗漏；原页证据从77增为81。复核记录逐页绑定SHA，课程覆盖与用户完成状态保持分离。
+- 独立上传27页答案：115条逻辑记录覆盖66道不同题，并非115道完整解析。长沙原文件8页/印刷总15页，第10题解析截断，第11题仅有选项表，第12–19题无参考答案；第6题用目视确认的原页定位补回，不伪造OCR题号。
+- 逐题教师证据已导入：74条路线、117条去重证据，其中62条证据符合门禁；整题层面2 verified、22 review、50 blocked。11条证据从真实正文重选同句主题与教师信号，不得宣称所有题已具备老师讲法。
+- 修复历史完成事件覆盖重置状态、答案题号歧义、重复答案页图、数据库故障被伪装为资料缺失、文稿/manifest变更后仍沿用旧证据等问题。列表接口不再逐题加载全部教师证据，详细读取走独立工具。
+- Cloudflare迁移0008/0009完成；内容版本 `exam-v1-138eaf54a6013e84`，Worker `3e0bda5b-fc90-417e-b7a4-078a62a1a638`。D1/健康/OAuth/未授权保护核验通过；真实19条学习事件、63条状态及0条试卷尝试在发布前后逐表SHA一致。
+- 实际连接器只读 `math_get_system_status` 成功返回新版试卷/答案/教师表统计。新增试卷工具尚未完成ChatGPT网页真实会话测试，不能将此写为全流程验收通过。
+- 最终验证：完整Python回归220通过/1跳过（共221），章节交付校验4通过，第一、二章进度校验通过；Cloud MCP14通过；R2全部11个对象远端SHA一致。运行库更新后补装PDF渲染/OCR依赖，以防静默生成无图索引。
+
+
+## 2026-08-31 试卷功能验收复核
+
+- 本地与线上结构验收通过：4 份原卷、74 道题、77 条原页证据、1,980 条双向路线链接，题面页图 17/17 哈希一致，答案页 27 页无学习者题面或 R2 泄漏。
+- 验收状态保持分层：44 道路线已准备但等待真实前置，14 道长沙扫描题待原页视觉复核，16 道需要当前教材范围外先修；不能把 74 道题统称为已解锁。
+- 明确未完成项：试卷答案页尚未作为独立答案源接入，未实现试卷答案与模型解法逐题比较；试卷题路由也尚未保存逐题教师文稿哈希/方法片段证明。增量扫描仍需显式 allowlist 与 `--previous`。
+- 验收命令：试卷测试 12/12、Cloud MCP 11/11、全量 Python 191 通过/1 跳过、路线校验 errors=0、章节进度校验通过；Cloudflare health/ready/OAuth=200、未授权 MCP=401，manifest SHA 与云端一致。
+
+## 2026-08-31 试卷状态文案与运行版本校正
+
+- 将试卷报告中的“路线已准备”与“用户已解锁”分开表述，避免把静态映射状态误报为真实学习进度；同步修正工作流目录中的 `S0-S11` 标题。
+- Cloud MCP README 将内容导入基线 Worker 与当前统一服务 Worker 分开记录；本次未改变试卷 manifest 或云端数据，manifest SHA 仍为 `bd6db598c3a2fa11f2c204de995414dc1a7530d157e98d6256a1f00545dc4035`。
+
+## 2026-08-31 试卷题目与循环/课程双向路由
+
+- 接收下载目录中的 4 份数学期中/期末原卷：共 74 道题；每份混合 PDF 均按原卷页与答案页切分，题面只绑定原卷页图和 SHA-256，答案页不进入学习者题面。
+- 新增 `data/exam_papers/source_allowlist.json`、`mapping_rules.json`、`scripts/build_exam_routes.py`、`scripts/query_exam_routes.py` 和 `data/exam_papers/learning_route_guide.md`。来源按完整 SHA 去重；新文件、改版文件和未配置题目保留为待复核，不按标题自动解锁。
+- 当前路由统计：44 道已建立课程/循环映射并等待真实前置完成，14 道扫描或跨主题题待原页复核，16 道明确需要当前教材范围外先修；试卷为独立可选源，不阻塞一本通主线。
+- 新增 Cloudflare D1 `0007_exam_papers.sql`、版本化题面页 R2 导入器和 MCP 读写工具：`math_get_exam_routes`、`math_get_exam_question`、`math_get_exam_route`、`math_record_exam_attempt`。试卷作答单独幂等记录，禁止改写一本通/章节状态；答案页只保留隔离元数据。
+- 本地试卷路由校验 errors=0；试卷相关 Python 测试 12/12 通过；全量 Python 回归 191 项通过、1 项视觉配置跳过；Cloud MCP typecheck 与测试 11/11 通过。
+- 按用户确认完成 Cloudflare 增量迁移、R2/D1 导入和 Worker 发布：版本 `exam-v1-4a8bcf67f10c7ae4`，最终 Worker `3665dcac-4a4f-41cd-bff9-92b433bb25be`。线上实查为 4 来源、44 页、17 张题面页、74 题、77 条证据、1,980 条路由链接、0 条试卷作答；原有 7 条学习事件保持不变。R2 五个试卷对象逐一下载验哈希通过，27 张答案页未进入题面包；health/ready/OAuth 元数据为 200，无令牌 MCP 为 401。
+
+## 2026-08-31 试卷路线合同补齐
+
+- 将试卷扩展规则写入 `codex-skill/ybt-all-chapters-learning-path/references/workflow-contract.md`：明确完整 SHA 身份、同 SHA 别名去重、`new/unchanged/changed/removed` 增量生命周期、替换/移除路线退休与作答历史保留。
+- 固化题目到节次/循环/课程的前向路线和反向筛选必须共用 `exam_route_links`；云端解锁只认显式学习状态，要求语义核验、原卷页证据和全部前置闭合，试卷作答写入不改变一本通主线。
+- 明确每次清单变更后运行 `scripts/validate_exam_routes.py`，增量导入先 dry-run 再按版本指纹导入；候选、待复核和外部先修题不得自动解锁。
+
+## 2026-08-31 试卷云端路线与可选作答
+
+- 新增 Cloudflare D1 增量迁移 `cloud/mcp/migrations/0007_exam_papers.sql`，保存原卷来源、题面页、题目路线、页图证据和可选作答；不重建既有表，也不把试卷作答投影为一本通进度。
+- 新增 `cloud/mcp/scripts/import_exam_papers.mjs`：从 `data/exam_papers/manifest.json` 生成版本化 R2 原卷题面页包和 D1 SQL。当前 dry-run 为 4 份原卷、74 道题、17 张题面页图；27 张答案页只保留元数据并排除出 R2。
+- Worker 新增 `math_get_exam_routes`、`math_get_exam_question`/`math_get_exam_route` 和 `math_record_exam_attempt`，前置课程/循环状态实时计算，映射待复核或前置未完成时 fail-closed；模型答案与原卷答案边界不变。新增 Cloud MCP 试卷合同测试并已在线部署，线上版本与计数见上一条记录。
+
+## 2026-08-31 文稿利用链与课程绑定收口
+
+- 新增 `scripts/audit_transcript_utilization.py` 及 `reports/all_chapters/transcript-utilization-current.{json,md}`：逐课程核对全文哈希、时间轴、循环绑定、主题命中和教师方法信号，并把 1,209 个编号项目与 32 个方法检查分开统计。当前 170/170 门课程可用、170/170 已进入路线、0 个无语义证据绑定；22 门旧转写明确保留无可靠时间轴状态。
+- 将教师文稿证据接入路线导出和答案隔离模拟：每个项目保存不含原文/答案的证据 ID、信号类别、句索引和时间跨度；输入指纹绑定审计报告，来源变化时旧运行自动失效。新增 `learning_route_summary.md` 旁路摘要，不覆盖既有详细学习文档。
+- 修正第一章微专题前置课程关系、第三章 `midpoint_idea` 首次落点及两个 learning packet 同步；清理第二至第五章过时的“转写缺失/标题假设”状态，保留“语义复核待完成”与真实学习消费的独立边界。
+- Cloud MCP 导入器从真实全文分块生成白名单 `method_tags`（`definition`、`recognition`、`method_order`、`warning`），无时间轴课程仍写入空时间边界；新增幂等导入测试覆盖 170 门课程与 19,234 个分块。
+- 本轮远端导入最终版本 `v1-be5d2c8dbec1ee9a` 已完成，D1 实查为 170 门课程、38 节、1,209 项、5,104 条课程链接、19,234 个分块（8,999 个带方法标签），原有 7 条学习事件保持不变；Worker `1bc539ec-8785-426a-930f-2f1137809abb` 的 health/readiness 为 200，无令牌 MCP 为 401，R2 78/78 对象验哈希通过。
+
 ## 2026-08-31 全书语义、答案隔离与 Cloud 答案证据收口
 
 - 使用多智能体逐题复核第 1 章第 2 节至第 5 章的 512 道 A/B/C 题型：512/512 accepted、0 blocked；修正 214 项机器建议，保留复合次类型，并以原题/原答案页证据裁决 `2.1 B9` 与 `2.6 C18`。`2.5 B13` 恢复为“恒被直线平分”，4 个源题面缺陷同步从原页修复。
@@ -161,3 +213,9 @@
 - ChatGPT 在 Edge 项目中重新读取提交 `ec04712` 后复核通过：11/11 节、401/401 项、170/170 课程转写和两章 learner progress 均可读取；最终报告写入 `reports/chatgpt_assistance_simulation/chapter12_full_audit.md`。
 - 修正审计器对题图的路径判断：题包里的旧绝对路径映射到仓库 `data/ocr_live_current/first_chapter_69/imgs` 和 `second_chapter_109/imgs` 后，11 节题图引用全部存在；更新审计结果 `all_visual_assets_present=true`，确认题目文字、题图和课程全文均闭合。
 - 全面更新 `ybt-all-chapters-learning-path` Skill：加入上下文审计合同、正确题面/题图/课程转写 source map、ChatGPT/GitHub handoff、浏览器进度快照、静态完整与真实学习分层、课程覆盖缺口和最终验收 flags；Skill quick validation、渲染测试和两章进度校验通过。
+
+## 2026-08-31
+
+- 试卷路线增加页面级视觉复核门禁：页图存在不再等同于已复核；每道题的所有原卷/续页必须有明确 `visual_review_status=verified`、有效页图 SHA-256，才可进入 `ready_for_optional_unlock`。待复核或证据缺失的路线保持锁定，且不改写《一本通》进度。
+- 增强 `scripts/index_exam_papers.py --previous`：记录证据指纹，区分 PDF 换版、页证据变更、重命名、移除和 allowlist 排除，并支持 `--diff-output` 与 `--fail-on-change`。新增/变更文件仍需独立映射和视觉复核。
+- 验证器增加 `--strict-visual-review` 及新 manifest 的 `route_policy.visual_review_gate` 检查；旧 manifest 保持读取兼容并提示 legacy gate 状态。试卷专项测试扩展至 10 项，覆盖视觉门禁、增量替换和 allowlist 过滤。

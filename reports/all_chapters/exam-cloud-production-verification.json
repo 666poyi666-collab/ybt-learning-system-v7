@@ -1,0 +1,47 @@
+{
+  "checked_at": "2026-09-07T22:01:02.611Z",
+  "manifest_sha256": "1bdbd15e0108981260801b3d47c81a08ea7bf27628f906aa7640d9644bfbcace",
+  "live": {
+    "sources": 4,
+    "questions": 74,
+    "question_evidence": 81,
+    "answer_records": 115,
+    "questions_with_reference": 66,
+    "answer_evidence": 128,
+    "teacher_routes": 74,
+    "stale_manifests": 0,
+    "answer_leak": 0,
+    "learning_events": 19,
+    "learner_state": 63,
+    "exam_attempts": 0
+  },
+  "progress_counts_before": {
+    "learning_events": 19,
+    "learner_state": 63,
+    "exam_attempts": 0
+  },
+  "progress_counts_unchanged": true,
+  "progress_hashes": {
+    "learning_events": {
+      "before": "6b208d97986360c658cfa0f1e685edcc80cc3f2c51d7d17c92014985fb14bb8a",
+      "after": "6b208d97986360c658cfa0f1e685edcc80cc3f2c51d7d17c92014985fb14bb8a"
+    },
+    "learner_state": {
+      "before": "26373fbf37833b8fd05206cb45d36bbd7f809269a6799774bfb3ff305f2baa0e",
+      "after": "26373fbf37833b8fd05206cb45d36bbd7f809269a6799774bfb3ff305f2baa0e"
+    },
+    "exam_attempts": {
+      "before": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "after": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  },
+  "progress_verification_scope": "All rows compared by canonical SHA-256; no simulated writes or completion events created.",
+  "http": {
+    "/healthz": 200,
+    "/readyz": 200,
+    "/.well-known/oauth-protected-resource": 200,
+    "/mcp": 401
+  },
+  "authenticated_chatgpt_session_tested": false,
+  "status": "passed"
+}

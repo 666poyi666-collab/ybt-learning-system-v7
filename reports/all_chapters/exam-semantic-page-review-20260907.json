@@ -1,0 +1,1199 @@
+{
+  "schema_version": "exam-semantic-page-review-v1",
+  "review_date": "2026-09-07",
+  "reviewer": "mapping_repair",
+  "method": "native_view_image_full_page_read",
+  "scope": "17 original question page images; 74 main question numbers",
+  "limits": [
+    "This is original-page topic and locator review, not independent answer validation.",
+    "Profile routes are pedagogical proposals; transcript sufficiency and real-user completion require separate checks.",
+    "Original page images override OCR excerpts; scanned formulas were not retyped.",
+    "External prerequisites remain unverified and must not auto-unlock."
+  ],
+  "page_evidence": [
+    {
+      "source": "exam-280027cc9e6ccb5b",
+      "page": "page-001.jpg",
+      "sha256": "a19080201d664fac5a7a5f69107feb2f3733f9552609235fe2fc4735148f46cf"
+    },
+    {
+      "source": "exam-280027cc9e6ccb5b",
+      "page": "page-002.jpg",
+      "sha256": "2ab9a6bd5a1752f74d6e7b663a9f4a5d7cd13748acd20688a91af3e67c9de31f"
+    },
+    {
+      "source": "exam-280027cc9e6ccb5b",
+      "page": "page-003.jpg",
+      "sha256": "21e8caddfe39c26a7290ff3b123a6611418992573a8781177cc4f8e8b171c0bc"
+    },
+    {
+      "source": "exam-280027cc9e6ccb5b",
+      "page": "page-004.jpg",
+      "sha256": "f56dca0d70690387b2be87103480050a566a3eeea4eff6181d4661c111ce5440"
+    },
+    {
+      "source": "exam-280027cc9e6ccb5b",
+      "page": "page-005.jpg",
+      "sha256": "1fad2daccb29723e408d9ab3563828fb51dc988651fb0e77ca2088f707469234"
+    },
+    {
+      "source": "exam-6f9d44087bb37f8b",
+      "page": "page-001.jpg",
+      "sha256": "58c49cee3a8e4c169efea39f394a94b1ed054eb7cc25df0c6509c65caaebbed9"
+    },
+    {
+      "source": "exam-6f9d44087bb37f8b",
+      "page": "page-002.jpg",
+      "sha256": "6d87e57e5df96c6fd325d786ba09d9fb753521301c0b145149e4c26b793c68ec"
+    },
+    {
+      "source": "exam-6f9d44087bb37f8b",
+      "page": "page-003.jpg",
+      "sha256": "6350c4ec3f0ceb7b7c30b1de7917d3b9cc3571e497630dd959b266796c530759"
+    },
+    {
+      "source": "exam-9dcdf2f2023b5eba",
+      "page": "page-001.jpg",
+      "sha256": "82b1e85cc2b991a358ad04ce26c1ec5a35c32ba88fc34322d355e53db68f0108"
+    },
+    {
+      "source": "exam-9dcdf2f2023b5eba",
+      "page": "page-002.jpg",
+      "sha256": "5e61dd75251f0ab8634b47e801322a7f26e068ff306dbee95d4fb0ec13066423"
+    },
+    {
+      "source": "exam-9dcdf2f2023b5eba",
+      "page": "page-003.jpg",
+      "sha256": "4339480d8e8f1daa41d544e39ee954239ef60556a0115d8e053c27e772378e52"
+    },
+    {
+      "source": "exam-9dcdf2f2023b5eba",
+      "page": "page-004.jpg",
+      "sha256": "88c85cdb2d2d8e3c45889c0f7501b88e950320fa7805f2d6df8b2e3d8bd5abca"
+    },
+    {
+      "source": "exam-e36f8b1c7340bdb7",
+      "page": "page-001.jpg",
+      "sha256": "cb370e8a92d2c59a3ad0f23ae7e90b8a91bacb5b1eced289bc4db7922115d8b9"
+    },
+    {
+      "source": "exam-e36f8b1c7340bdb7",
+      "page": "page-002.jpg",
+      "sha256": "83821b666a98177970d412a94b2d7fe09bf8821c302bbf6d9dd5a80520d4da1d"
+    },
+    {
+      "source": "exam-e36f8b1c7340bdb7",
+      "page": "page-003.jpg",
+      "sha256": "7b91556c04fb1f54ee8a15a41387cfaa1eab39e1c0ea0d00213642aeca08c806"
+    },
+    {
+      "source": "exam-e36f8b1c7340bdb7",
+      "page": "page-004.jpg",
+      "sha256": "20942a03ad6ea8f23b7e9b559f8bc8199026aebad77e4ccb02d3fc8109bee5a2"
+    },
+    {
+      "source": "exam-e36f8b1c7340bdb7",
+      "page": "page-005.jpg",
+      "sha256": "11ebfd9a39b317248e18ec2279bab7bd07c9756bfb1d4bcea22a84a6242213d3"
+    }
+  ],
+  "questions": [
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_number": 1,
+      "pages": [
+        1
+      ],
+      "observed_topic": "等差数列前n项和与中项性质",
+      "proposed_profiles": [
+        "sequence_sum"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_number": 2,
+      "pages": [
+        1
+      ],
+      "observed_topic": "直线倾斜角与斜率",
+      "proposed_profiles": [
+        "line_slope"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_number": 3,
+      "pages": [
+        1
+      ],
+      "observed_topic": "斜二测直观图与原平面面积",
+      "proposed_profiles": [
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "斜二测法与平面图形面积"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_number": 4,
+      "pages": [
+        1
+      ],
+      "observed_topic": "复数除法与虚部",
+      "proposed_profiles": [
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "复数的代数运算"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_number": 5,
+      "pages": [
+        1
+      ],
+      "observed_topic": "椭圆与双曲线共焦点、离心率",
+      "proposed_profiles": [
+        "ellipse_property",
+        "hyperbola_property"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_number": 6,
+      "pages": [
+        1
+      ],
+      "observed_topic": "抛物线焦点、准线与对称性",
+      "proposed_profiles": [
+        "parabola_property"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_number": 7,
+      "pages": [
+        1,
+        2
+      ],
+      "observed_topic": "正方体中点到平面的距离",
+      "proposed_profiles": [
+        "spatial_geometry_distance"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_number": 8,
+      "pages": [
+        2
+      ],
+      "observed_topic": "含参数二次方程表示椭圆的条件（分母正且不等）",
+      "proposed_profiles": [
+        "ellipse_basic"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_number": 9,
+      "pages": [
+        2
+      ],
+      "observed_topic": "三条直线分平面为六部分的参数判定",
+      "proposed_profiles": [
+        "line_equation"
+      ],
+      "external_prerequisites": [
+        "三条直线分平面区域计数"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_number": 10,
+      "pages": [
+        2
+      ],
+      "observed_topic": "相邻两项组成的点在直线上：转等差递推求前n项和",
+      "proposed_profiles": [
+        "sequence_sum"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_number": 11,
+      "pages": [
+        2
+      ],
+      "observed_topic": "椭圆焦点三角形为等腰三角形与中点条件求离心率",
+      "proposed_profiles": [
+        "ellipse_property"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_number": 12,
+      "pages": [
+        2
+      ],
+      "observed_topic": "正方形沿AM翻折后四棱锥的体积",
+      "proposed_profiles": [
+        "spatial_geometry_distance"
+      ],
+      "external_prerequisites": [
+        "空间翻折保持长度与棱锥体积公式"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_number": 13,
+      "pages": [
+        2
+      ],
+      "observed_topic": "三角函数诱导公式化简与两角和差求值",
+      "proposed_profiles": [
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "三角函数诱导公式与两角和差"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-6f9d44087bb37f8b",
+      "source_pdf_sha256": "6f9d44087bb37f8bd72f5d796a3c793c6b350da2ab6fa4e537effda10ce6bcd4",
+      "question_number": 14,
+      "pages": [
+        3
+      ],
+      "observed_topic": "射击得分的平均数、中位数、方差与随机选取概率",
+      "proposed_profiles": [
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "平均数、中位数、方差与古典概型"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 1,
+      "pages": [
+        1
+      ],
+      "observed_topic": "等差数列中项",
+      "proposed_profiles": [
+        "sequence_term"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 2,
+      "pages": [
+        1
+      ],
+      "observed_topic": "圆的方程与半径",
+      "proposed_profiles": [
+        "circle_basic"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 3,
+      "pages": [
+        1
+      ],
+      "observed_topic": "抛物线与椭圆共焦点、准线",
+      "proposed_profiles": [
+        "parabola_basic",
+        "ellipse_basic"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 4,
+      "pages": [
+        1
+      ],
+      "observed_topic": "空气质量折线图的统计判断",
+      "proposed_profiles": [
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "统计图表与方差/中位数"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 5,
+      "pages": [
+        1
+      ],
+      "observed_topic": "双曲线焦距与渐近线上点求标准方程",
+      "proposed_profiles": [
+        "hyperbola_property"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 6,
+      "pages": [
+        1,
+        2
+      ],
+      "observed_topic": "三角函数表达式的周期、奇偶与单调性",
+      "proposed_profiles": [
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "三角函数图像与性质"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 7,
+      "pages": [
+        2
+      ],
+      "observed_topic": "已知两边及夹角，求三角形中线长（向量和的模）",
+      "proposed_profiles": [
+        "spatial_vector_dot_length"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 8,
+      "pages": [
+        2
+      ],
+      "observed_topic": "椭圆焦点弦比与离心率",
+      "proposed_profiles": [
+        "ellipse_property"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 9,
+      "pages": [
+        2
+      ],
+      "observed_topic": "复数命题判断",
+      "proposed_profiles": [
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "复数的模与共轭"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 10,
+      "pages": [
+        2,
+        3
+      ],
+      "observed_topic": "正方体中体积、线面垂直与二面角",
+      "proposed_profiles": [
+        "spatial_geometry_core"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 11,
+      "pages": [
+        3
+      ],
+      "observed_topic": "四叶玫瑰线直角坐标方程的象限、面积界、模长与整点",
+      "proposed_profiles": [
+        "circle_basic"
+      ],
+      "external_prerequisites": [
+        "基本不等式与曲线区域比较、整点枚举"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 12,
+      "pages": [
+        3
+      ],
+      "observed_topic": "两圆公共弦所在直线（根轴）",
+      "proposed_profiles": [
+        "circle_circle"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 13,
+      "pages": [
+        3
+      ],
+      "observed_topic": "调和数列与乘积最值",
+      "proposed_profiles": [
+        "sequence_harmonic"
+      ],
+      "external_prerequisites": [
+        "正数基本不等式"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 14,
+      "pages": [
+        3
+      ],
+      "observed_topic": "四棱锥外接球与动点最小值",
+      "proposed_profiles": [
+        "spatial_geometry_moving_fold"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 15,
+      "pages": [
+        3
+      ],
+      "observed_topic": "等差数列通项与前n项和最小值",
+      "proposed_profiles": [
+        "sequence_sum"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 16,
+      "pages": [
+        4
+      ],
+      "observed_topic": "等差与等比条件求通项，再对a_n+3^{a_n}分组求和",
+      "proposed_profiles": [
+        "sequence_arithmetic_exponential_sum"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 17,
+      "pages": [
+        4
+      ],
+      "observed_topic": "四棱锥中的线面平行与二面角",
+      "proposed_profiles": [
+        "spatial_geometry_core"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 18,
+      "pages": [
+        4
+      ],
+      "observed_topic": "抛物线方程、弦面积与定值点",
+      "proposed_profiles": [
+        "parabola_advanced"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-280027cc9e6ccb5b",
+      "source_pdf_sha256": "280027cc9e6ccb5b0aa83798892a5ee23ace5bef34d021568ebaa9e4bc2ea5e5",
+      "question_number": 19,
+      "pages": [
+        4,
+        5
+      ],
+      "observed_topic": "平面折纸的垂直平分线生成双曲线，结合圆切线求四边形面积范围",
+      "proposed_profiles": [
+        "hyperbola_advanced",
+        "circle_line"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 1,
+      "pages": [
+        1
+      ],
+      "observed_topic": "集合交集",
+      "proposed_profiles": [
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "集合与区间"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 2,
+      "pages": [
+        1
+      ],
+      "observed_topic": "复数在复平面中的位置",
+      "proposed_profiles": [
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "复数与复平面"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 3,
+      "pages": [
+        1
+      ],
+      "observed_topic": "等差数列中项",
+      "proposed_profiles": [
+        "sequence_term"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 4,
+      "pages": [
+        1
+      ],
+      "observed_topic": "抛物线焦点到准线距离",
+      "proposed_profiles": [
+        "parabola_basic"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 5,
+      "pages": [
+        1
+      ],
+      "observed_topic": "两圆位置关系",
+      "proposed_profiles": [
+        "circle_circle"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 6,
+      "pages": [
+        1
+      ],
+      "observed_topic": "四面体中点与三等分点的向量线性表示（非坐标）",
+      "proposed_profiles": [
+        "spatial_vector_basis"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 7,
+      "pages": [
+        1
+      ],
+      "observed_topic": "理想速度方程的对数计算",
+      "proposed_profiles": [
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "对数函数与应用"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 8,
+      "pages": [
+        1,
+        2
+      ],
+      "observed_topic": "双曲线渐近线、垂足与离心率",
+      "proposed_profiles": [
+        "hyperbola_property"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 9,
+      "pages": [
+        2
+      ],
+      "observed_topic": "混合命题：直线距离、百分位数、垂直与概率",
+      "proposed_profiles": [
+        "line_distance_fixed_point",
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "统计百分位数",
+        "概率事件"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 10,
+      "pages": [
+        2
+      ],
+      "observed_topic": "圆与参数直线的定点、相切、相交和直角三角形",
+      "proposed_profiles": [
+        "line_distance_fixed_point",
+        "circle_line"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 11,
+      "pages": [
+        2
+      ],
+      "observed_topic": "正方体截面、线面垂直与动点轨迹",
+      "proposed_profiles": [
+        "spatial_geometry_moving_fold"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 12,
+      "pages": [
+        2
+      ],
+      "observed_topic": "二维向量(2,m)与(1,1)垂直的数量积判定",
+      "proposed_profiles": [
+        "planar_vector_dot_transfer"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 13,
+      "pages": [
+        2
+      ],
+      "observed_topic": "正四棱台顶点共球面，由截面半径和高求体积",
+      "proposed_profiles": [
+        "spatial_geometry_distance"
+      ],
+      "external_prerequisites": [
+        "球截面半径关系、正棱台体积公式"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 14,
+      "pages": [
+        2
+      ],
+      "observed_topic": "直三棱柱中动点到直线距离最小值",
+      "proposed_profiles": [
+        "spatial_geometry_distance",
+        "spatial_geometry_moving_fold"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 15,
+      "pages": [
+        3
+      ],
+      "observed_topic": "三角形正弦定理",
+      "proposed_profiles": [
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "正弦定理与三角形面积"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 16,
+      "pages": [
+        3
+      ],
+      "observed_topic": "四棱锥线面平行与二面角",
+      "proposed_profiles": [
+        "spatial_geometry_angle"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 17,
+      "pages": [
+        3
+      ],
+      "observed_topic": "递推数列、等差数列与分组求和",
+      "proposed_profiles": [
+        "sequence_mixed"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 18,
+      "pages": [
+        4
+      ],
+      "observed_topic": "乒乓球比赛的条件概率",
+      "proposed_profiles": [
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "独立事件与条件概率"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-9dcdf2f2023b5eba",
+      "source_pdf_sha256": "9dcdf2f2023b5eba1a9238cabfc234b837e1e1910578f2da2b1ba506f1dc9a69",
+      "question_number": 19,
+      "pages": [
+        4
+      ],
+      "observed_topic": "椭圆方程、三角形面积最值与定点",
+      "proposed_profiles": [
+        "ellipse_advanced"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 1,
+      "pages": [
+        1
+      ],
+      "observed_topic": "空间向量坐标平行判定",
+      "proposed_profiles": [
+        "spatial_vector_coordinate_parallel"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 2,
+      "pages": [
+        1
+      ],
+      "observed_topic": "直线倾斜角",
+      "proposed_profiles": [
+        "line_slope"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 3,
+      "pages": [
+        1
+      ],
+      "observed_topic": "平行六面体中空间向量数量积求长度",
+      "proposed_profiles": [
+        "spatial_vector_dot_length"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 4,
+      "pages": [
+        1
+      ],
+      "observed_topic": "空间向量垂直与模长",
+      "proposed_profiles": [
+        "spatial_vector_coordinate_dot"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 5,
+      "pages": [
+        1
+      ],
+      "observed_topic": "平行六面体中点的向量表示",
+      "proposed_profiles": [
+        "spatial_vector_basis"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 6,
+      "pages": [
+        1
+      ],
+      "observed_topic": "直线截距式方程",
+      "proposed_profiles": [
+        "line_equation"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 7,
+      "pages": [
+        1
+      ],
+      "observed_topic": "正方体中平面距离、外接球和线面关系判断",
+      "proposed_profiles": [
+        "spatial_geometry_distance",
+        "spatial_geometry_angle"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 8,
+      "pages": [
+        1,
+        2
+      ],
+      "observed_topic": "两条参数直线交点轨迹与距离和最值",
+      "proposed_profiles": [
+        "line_distance_fixed_point",
+        "circle_basic"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 9,
+      "pages": [
+        2
+      ],
+      "observed_topic": "四棱柱中点与靠近端点的五等分点的向量线性表示",
+      "proposed_profiles": [
+        "spatial_vector_basis"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 10,
+      "pages": [
+        2
+      ],
+      "observed_topic": "投影向量、四点共面、空间基底与方向/法向量判断",
+      "proposed_profiles": [
+        "vector_projection_basis_relations"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 11,
+      "pages": [
+        2
+      ],
+      "observed_topic": "正四棱锥与正方体组合体的线面关系和距离",
+      "proposed_profiles": [
+        "spatial_geometry_comprehensive"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 12,
+      "pages": [
+        2,
+        3
+      ],
+      "observed_topic": "正方体中线面垂直、平行、线面角和外接球",
+      "proposed_profiles": [
+        "spatial_geometry_comprehensive"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 13,
+      "pages": [
+        3
+      ],
+      "observed_topic": "正方体中异面直线所成角",
+      "proposed_profiles": [
+        "spatial_geometry_angle"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 14,
+      "pages": [
+        3
+      ],
+      "observed_topic": "直线关于水平线对称后与圆的位置关系",
+      "proposed_profiles": [
+        "line_equation",
+        "circle_line"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 15,
+      "pages": [
+        3
+      ],
+      "observed_topic": "线段上动点与定点连线的斜率范围",
+      "proposed_profiles": [
+        "line_slope",
+        "line_distance_fixed_point"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 16,
+      "pages": [
+        3
+      ],
+      "observed_topic": "正三棱柱动点与异面直线夹角",
+      "proposed_profiles": [
+        "spatial_geometry_angle",
+        "spatial_geometry_moving_fold"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 17,
+      "pages": [
+        3
+      ],
+      "observed_topic": "三棱锥垂直关系与二面角",
+      "proposed_profiles": [
+        "spatial_geometry_comprehensive"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 18,
+      "pages": [
+        4
+      ],
+      "observed_topic": "三角形正弦余弦与周长",
+      "proposed_profiles": [
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "正弦定理、余弦定理与面积公式"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 19,
+      "pages": [
+        4
+      ],
+      "observed_topic": "四面体面面垂直、面积最小与线面角",
+      "proposed_profiles": [
+        "spatial_geometry_core"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 20,
+      "pages": [
+        4
+      ],
+      "observed_topic": "三角形高线、中线与直线方程",
+      "proposed_profiles": [
+        "line_equation",
+        "line_distance_fixed_point"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 21,
+      "pages": [
+        5
+      ],
+      "observed_topic": "四棱锥线面平行、二面角与动点比例",
+      "proposed_profiles": [
+        "spatial_geometry_comprehensive",
+        "spatial_geometry_moving_fold"
+      ],
+      "external_prerequisites": [],
+      "review_status": "source_topic_read_route_proposed"
+    },
+    {
+      "source_id": "exam-e36f8b1c7340bdb7",
+      "source_pdf_sha256": "e36f8b1c7340bdb71a3851183c461bdb3e1f2774c2a61152700c5dd53adfdc88",
+      "question_number": 22,
+      "pages": [
+        5
+      ],
+      "observed_topic": "信号传输与重复试验概率",
+      "proposed_profiles": [
+        "out_of_scope"
+      ],
+      "external_prerequisites": [
+        "独立重复试验与概率"
+      ],
+      "review_status": "source_topic_read_prerequisite_review_needed"
+    }
+  ]
+}
